@@ -1,0 +1,60 @@
+{
+  "mapping": [
+    {
+      "model": "svm_without_tacotron",
+      "recorded_local_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "published_source_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "source_files_match_published_training_revision": true
+    },
+    {
+      "model": "cnn_augmented_seed2024",
+      "recorded_local_revision": "2904b8cca028aa45ce3e715aa49256c5c6472b7a",
+      "published_source_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "source_files_match_published_training_revision": true
+    },
+    {
+      "model": "cnn_ordinary_seed42",
+      "recorded_local_revision": "2904b8cca028aa45ce3e715aa49256c5c6472b7a",
+      "published_source_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "source_files_match_published_training_revision": true
+    },
+    {
+      "model": "cnn_ordinary_seed2024",
+      "recorded_local_revision": "2904b8cca028aa45ce3e715aa49256c5c6472b7a",
+      "published_source_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "source_files_match_published_training_revision": true
+    },
+    {
+      "model": "cnn_ordinary_seed123",
+      "recorded_local_revision": "2904b8cca028aa45ce3e715aa49256c5c6472b7a",
+      "published_source_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "source_files_match_published_training_revision": true
+    },
+    {
+      "model": "svm_without_tts",
+      "recorded_local_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "published_source_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "source_files_match_published_training_revision": true
+    },
+    {
+      "model": "cnn_augmented_seed123",
+      "recorded_local_revision": "2904b8cca028aa45ce3e715aa49256c5c6472b7a",
+      "published_source_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "source_files_match_published_training_revision": true
+    },
+    {
+      "model": "cnn_augmented_seed42",
+      "recorded_local_revision": "2904b8cca028aa45ce3e715aa49256c5c6472b7a",
+      "published_source_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "source_files_match_published_training_revision": true
+    },
+    {
+      "model": "svm_reference",
+      "recorded_local_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "published_source_revision": "a3931481998772819987b72a9e97a82e9920b752",
+      "source_files_match_published_training_revision": true
+    }
+  ],
+  "note": "CNN metadata records a local data/artifact commit; its Python source hashes match the published source revision. GitHub publication creates distinct commit IDs for equivalent trees.",
+  "post_training_change": "The final repository adds a stale-SVM resume guard after training. This guard does not change fitted weights, thresholds or measured predictions. Exact training source remains at the published revision recorded above."
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "public_dataset_path": "Bonafide/Speaker_10/Part 1/10.wav",
+    "known_dataset_label": 0,
+    "reference_inference": {
+      "outcome": "No strong synthetic evidence",
+      "evidence_logit": -5.6001176834106445,
+      "score_is_probability": false,
+      "analyzed_seconds": 8.099,
+      "windows": 14,
+      "model": "cnn_augmented_seed123",
+      "elapsed_seconds_including_model_load": 1.4959916030002205,
+      "limitation": "Does not verify identity, truthfulness or absence of fraud; energy gate is not validated VAD."
+    }
+  },
+  {
+    "public_dataset_path": "Spoofed_TTS/Speaker_10/10.wav",
+    "known_dataset_label": 1,
+    "reference_inference": {
+      "outcome": "Synthetic speech suspected",
+      "evidence_logit": 2.4646220207214355,
+      "score_is_probability": false,
+      "analyzed_seconds": 5.729,
+      "windows": 9,
+      "model": "cnn_augmented_seed123",
+      "elapsed_seconds_including_model_load": 0.02373125899976003,
+      "limitation": "Does not verify identity, truthfulness or absence of fraud; energy gate is not validated VAD."
+    }
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "epoch": 1,
+    "loss": 0.23812341388181432,
+    "dev_mean_balanced_accuracy_at_zero": 0.7827083333333333
+  },
+  {
+    "epoch": 2,
+    "loss": 0.056406269540850554,
+    "dev_mean_balanced_accuracy_at_zero": 0.7575000000000001
+  },
+  {
+    "epoch": 3,
+    "loss": 0.031109670270337286,
+    "dev_mean_balanced_accuracy_at_zero": 0.775625
+  },
+  {
+    "epoch": 4,
+    "loss": 0.021748443813393057,
+    "dev_mean_balanced_accuracy_at_zero": 0.72375
+  },
+  {
+    "epoch": 5,
+    "loss": 0.022411171882196417,
+    "dev_mean_balanced_accuracy_at_zero": 0.7454166666666666
+  }
+]

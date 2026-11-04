@@ -1,0 +1,10 @@
+{
+  "purpose": "Artificial deterministic frontend parity fixtures only; not a deepfake benchmark",
+  "count": 10,
+  "sample_rate": 16000,
+  "fixture_sha256": "1c1f049fcd175a71a3bc6cf8a59908a7366716b3a9322eaad9540cec14b399e5",
+  "source_model": "cnn_augmented_seed123",
+  "target_mobile_max_absolute_normalized_error": 0.001,
+  "mobile_test_status": "Not performed",
+  "normalization": "(Python logmel - checkpoint mean) / checkpoint std; ONNX performs this internally"
+}

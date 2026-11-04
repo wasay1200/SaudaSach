@@ -1,0 +1,2558 @@
+{
+  "cnn_augmented_seed123": {
+    "clean": {
+      "n": 1191,
+      "balanced_accuracy": 0.8937728421242612,
+      "accuracy": 0.8933669185558354,
+      "fake_recall": 0.9628378378378378,
+      "genuine_recall": 0.8247078464106845,
+      "false_positive_rate": 0.17529215358931552,
+      "fake_f1": 0.8997632202052092,
+      "roc_auc": 0.9699527365428868,
+      "eer": 0.11148648648648643,
+      "confusion_matrix": [
+        [
+          494,
+          105
+        ],
+        [
+          22,
+          570
+        ]
+      ],
+      "threshold": -1.2617366512616475,
+      "balanced_accuracy_ci95": {
+        "low": 0.7086398963730569,
+        "high": 0.9899497487437185,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9580184718723762,
+      "error_among_decided": 0.09114811568799298
+    },
+    "noise20": {
+      "n": 1191,
+      "balanced_accuracy": 0.8711464490366827,
+      "accuracy": 0.8706968933669186,
+      "fake_recall": 0.9476351351351351,
+      "genuine_recall": 0.7946577629382304,
+      "false_positive_rate": 0.20534223706176963,
+      "fake_f1": 0.8793103448275862,
+      "roc_auc": 0.9573444479537969,
+      "eer": 0.13006756756756763,
+      "confusion_matrix": [
+        [
+          476,
+          123
+        ],
+        [
+          31,
+          561
+        ]
+      ],
+      "threshold": -1.2617366512616475,
+      "balanced_accuracy_ci95": {
+        "low": 0.6807772020725389,
+        "high": 0.97,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9336691855583543,
+      "error_among_decided": 0.10341726618705036
+    },
+    "noise10": {
+      "n": 1191,
+      "balanced_accuracy": 0.8521846658845824,
+      "accuracy": 0.8513853904282116,
+      "fake_recall": 0.9881756756756757,
+      "genuine_recall": 0.7161936560934892,
+      "false_positive_rate": 0.2838063439065108,
+      "fake_f1": 0.8685968819599109,
+      "roc_auc": 0.9548769345305238,
+      "eer": 0.14023372287145242,
+      "confusion_matrix": [
+        [
+          429,
+          170
+        ],
+        [
+          7,
+          585
+        ]
+      ],
+      "threshold": -1.2617366512616475,
+      "balanced_accuracy_ci95": {
+        "low": 0.7124093264248704,
+        "high": 0.985,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.8916876574307305,
+      "error_among_decided": 0.1224105461393597
+    },
+    "noise5": {
+      "n": 1191,
+      "balanced_accuracy": 0.7821072846636286,
+      "accuracy": 0.7808564231738035,
+      "fake_recall": 0.9949324324324325,
+      "genuine_recall": 0.5692821368948247,
+      "false_positive_rate": 0.4307178631051753,
+      "fake_f1": 0.8186240444753301,
+      "roc_auc": 0.9466424897351442,
+      "eer": 0.14357262103505844,
+      "confusion_matrix": [
+        [
+          341,
+          258
+        ],
+        [
+          3,
+          589
+        ]
+      ],
+      "threshold": -1.2617366512616475,
+      "balanced_accuracy_ci95": {
+        "low": 0.6582914572864321,
+        "high": 0.9924999999999999,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.8261964735516373,
+      "error_among_decided": 0.1758130081300813
+    },
+    "opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.8928591571538149,
+      "accuracy": 0.892527287993283,
+      "fake_recall": 0.9493243243243243,
+      "genuine_recall": 0.8363939899833055,
+      "false_positive_rate": 0.1636060100166945,
+      "fake_f1": 0.8977635782747604,
+      "roc_auc": 0.9687655100843748,
+      "eer": 0.11824324324324323,
+      "confusion_matrix": [
+        [
+          501,
+          98
+        ],
+        [
+          30,
+          562
+        ]
+      ],
+      "threshold": -1.2617366512616475,
+      "balanced_accuracy_ci95": {
+        "low": 0.7030958549222798,
+        "high": 0.9974874371859297,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9513014273719563,
+      "error_among_decided": 0.09267431597528684
+    },
+    "gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.8912884086089428,
+      "accuracy": 0.890848026868178,
+      "fake_recall": 0.9662162162162162,
+      "genuine_recall": 0.8163606010016694,
+      "false_positive_rate": 0.18363939899833054,
+      "fake_f1": 0.8979591836734694,
+      "roc_auc": 0.9641688850787349,
+      "eer": 0.12837837837837837,
+      "confusion_matrix": [
+        [
+          489,
+          110
+        ],
+        [
+          20,
+          572
+        ]
+      ],
+      "threshold": -1.2617366512616475,
+      "balanced_accuracy_ci95": {
+        "low": 0.7086398963730569,
+        "high": 0.9875,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9378673383711167,
+      "error_among_decided": 0.09489704565801253
+    },
+    "noise10_opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.8596774466453097,
+      "accuracy": 0.8589420654911839,
+      "fake_recall": 0.9847972972972973,
+      "genuine_recall": 0.7345575959933222,
+      "false_positive_rate": 0.2654424040066778,
+      "fake_f1": 0.8740629685157422,
+      "roc_auc": 0.9538194287776925,
+      "eer": 0.13513513513513517,
+      "confusion_matrix": [
+        [
+          440,
+          159
+        ],
+        [
+          9,
+          583
+        ]
+      ],
+      "threshold": -1.2617366512616475,
+      "balanced_accuracy_ci95": {
+        "low": 0.7021373056994819,
+        "high": 0.9875,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.90848026868178,
+      "error_among_decided": 0.11460258780036968
+    },
+    "noise10_gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.8913673690384876,
+      "accuracy": 0.890848026868178,
+      "fake_recall": 0.9797297297297297,
+      "genuine_recall": 0.8030050083472454,
+      "false_positive_rate": 0.19699499165275458,
+      "fake_f1": 0.8992248062015504,
+      "roc_auc": 0.9456554843658349,
+      "eer": 0.14691151919866444,
+      "confusion_matrix": [
+        [
+          481,
+          118
+        ],
+        [
+          12,
+          580
+        ]
+      ],
+      "threshold": -1.2617366512616475,
+      "balanced_accuracy_ci95": {
+        "low": 0.7070466321243524,
+        "high": 0.9849246231155779,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9563392107472712,
+      "error_among_decided": 0.10008779631255488
+    },
+    "opus12": {
+      "n": 1191,
+      "balanced_accuracy": 0.8869173848305735,
+      "accuracy": 0.8866498740554156,
+      "fake_recall": 0.9324324324324325,
+      "genuine_recall": 0.8414023372287145,
+      "false_positive_rate": 0.15859766277128548,
+      "fake_f1": 0.8910411622276029,
+      "roc_auc": 0.9672680819383658,
+      "eer": 0.12500000000000006,
+      "confusion_matrix": [
+        [
+          504,
+          95
+        ],
+        [
+          40,
+          552
+        ]
+      ],
+      "threshold": -1.2617366512616475,
+      "balanced_accuracy_ci95": {
+        "low": 0.6873704663212435,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9445843828715366,
+      "error_among_decided": 0.09066666666666667
+    }
+  },
+  "cnn_augmented_seed2024": {
+    "clean": {
+      "n": 1191,
+      "balanced_accuracy": 0.892553185489329,
+      "accuracy": 0.892527287993283,
+      "fake_recall": 0.8969594594594594,
+      "genuine_recall": 0.8881469115191987,
+      "false_positive_rate": 0.11185308848080133,
+      "fake_f1": 0.892436974789916,
+      "roc_auc": 0.967361142444615,
+      "eer": 0.10851419031719532,
+      "confusion_matrix": [
+        [
+          532,
+          67
+        ],
+        [
+          61,
+          531
+        ]
+      ],
+      "threshold": -0.5268048644065857,
+      "balanced_accuracy_ci95": {
+        "low": 0.687059585492228,
+        "high": 0.9975,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9210747271200672,
+      "error_among_decided": 0.07566089334548769
+    },
+    "noise20": {
+      "n": 1191,
+      "balanced_accuracy": 0.868079682353472,
+      "accuracy": 0.8681780016792612,
+      "fake_recall": 0.8513513513513513,
+      "genuine_recall": 0.8848080133555927,
+      "false_positive_rate": 0.11519198664440734,
+      "fake_f1": 0.8652360515021459,
+      "roc_auc": 0.9634554211974912,
+      "eer": 0.1266891891891891,
+      "confusion_matrix": [
+        [
+          530,
+          69
+        ],
+        [
+          88,
+          504
+        ]
+      ],
+      "threshold": -0.5268048644065857,
+      "balanced_accuracy_ci95": {
+        "low": 0.6254274611398964,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.924433249370277,
+      "error_among_decided": 0.1008174386920981
+    },
+    "noise10": {
+      "n": 1191,
+      "balanced_accuracy": 0.8852972860172359,
+      "accuracy": 0.8849706129303107,
+      "fake_recall": 0.9408783783783784,
+      "genuine_recall": 0.8297161936560935,
+      "false_positive_rate": 0.17028380634390652,
+      "fake_f1": 0.8904876099120703,
+      "roc_auc": 0.9626545368406804,
+      "eer": 0.14357262103505844,
+      "confusion_matrix": [
+        [
+          497,
+          102
+        ],
+        [
+          35,
+          557
+        ]
+      ],
+      "threshold": -0.5268048644065857,
+      "balanced_accuracy_ci95": {
+        "low": 0.6800518134715026,
+        "high": 0.9924623115577889,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.945424013434089,
+      "error_among_decided": 0.09680284191829484
+    },
+    "noise5": {
+      "n": 1191,
+      "balanced_accuracy": 0.882960903307314,
+      "accuracy": 0.8824517212426533,
+      "fake_recall": 0.9695945945945946,
+      "genuine_recall": 0.7963272120200334,
+      "false_positive_rate": 0.2036727879799666,
+      "fake_f1": 0.8913043478260869,
+      "roc_auc": 0.9519920588368,
+      "eer": 0.14189189189189177,
+      "confusion_matrix": [
+        [
+          477,
+          122
+        ],
+        [
+          18,
+          574
+        ]
+      ],
+      "threshold": -0.5268048644065857,
+      "balanced_accuracy_ci95": {
+        "low": 0.6964119170984456,
+        "high": 0.985,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9311502938706969,
+      "error_among_decided": 0.10279531109107304
+    },
+    "opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.8832132946803231,
+      "accuracy": 0.8832913518052057,
+      "fake_recall": 0.8699324324324325,
+      "genuine_recall": 0.8964941569282137,
+      "false_positive_rate": 0.10350584307178631,
+      "fake_f1": 0.8810949529512404,
+      "roc_auc": 0.9663543969679196,
+      "eer": 0.11317567567567567,
+      "confusion_matrix": [
+        [
+          537,
+          62
+        ],
+        [
+          77,
+          515
+        ]
+      ],
+      "threshold": -0.5268048644065857,
+      "balanced_accuracy_ci95": {
+        "low": 0.6606994818652849,
+        "high": 0.995,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9118387909319899,
+      "error_among_decided": 0.0718232044198895
+    },
+    "gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.880071797590579,
+      "accuracy": 0.8799328295549959,
+      "fake_recall": 0.9037162162162162,
+      "genuine_recall": 0.8564273789649416,
+      "false_positive_rate": 0.14357262103505844,
+      "fake_f1": 0.8821104699093157,
+      "roc_auc": 0.9481032576817217,
+      "eer": 0.12353923205342238,
+      "confusion_matrix": [
+        [
+          513,
+          86
+        ],
+        [
+          57,
+          535
+        ]
+      ],
+      "threshold": -0.5268048644065857,
+      "balanced_accuracy_ci95": {
+        "low": 0.6750129533678757,
+        "high": 0.995,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.8916876574307305,
+      "error_among_decided": 0.08851224105461393
+    },
+    "noise10_opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.8793752538013807,
+      "accuracy": 0.8790931989924433,
+      "fake_recall": 0.9273648648648649,
+      "genuine_recall": 0.8313856427378965,
+      "false_positive_rate": 0.1686143572621035,
+      "fake_f1": 0.8840579710144928,
+      "roc_auc": 0.9586106348418535,
+      "eer": 0.14023372287145242,
+      "confusion_matrix": [
+        [
+          498,
+          101
+        ],
+        [
+          43,
+          549
+        ]
+      ],
+      "threshold": -0.5268048644065857,
+      "balanced_accuracy_ci95": {
+        "low": 0.6617357512953368,
+        "high": 0.992462311557789,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9420654911838791,
+      "error_among_decided": 0.10071301247771836
+    },
+    "noise10_gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.876065965798854,
+      "accuracy": 0.8757346767422334,
+      "fake_recall": 0.9324324324324325,
+      "genuine_recall": 0.8196994991652755,
+      "false_positive_rate": 0.18030050083472454,
+      "fake_f1": 0.8817891373801917,
+      "roc_auc": 0.9520540991742995,
+      "eer": 0.14020270270270274,
+      "confusion_matrix": [
+        [
+          491,
+          108
+        ],
+        [
+          40,
+          552
+        ]
+      ],
+      "threshold": -0.5268048644065857,
+      "balanced_accuracy_ci95": {
+        "low": 0.6565544041450777,
+        "high": 0.995,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9311502938706969,
+      "error_among_decided": 0.10009017132551848
+    },
+    "opus12": {
+      "n": 1191,
+      "balanced_accuracy": 0.8763479673329423,
+      "accuracy": 0.8765743073047859,
+      "fake_recall": 0.8378378378378378,
+      "genuine_recall": 0.9148580968280468,
+      "false_positive_rate": 0.08514190317195326,
+      "fake_f1": 0.8709394205443372,
+      "roc_auc": 0.9654717321662231,
+      "eer": 0.11352253756260434,
+      "confusion_matrix": [
+        [
+          548,
+          51
+        ],
+        [
+          96,
+          496
+        ]
+      ],
+      "threshold": -0.5268048644065857,
+      "balanced_accuracy_ci95": {
+        "low": 0.6419300518134715,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9151973131821999,
+      "error_among_decided": 0.081651376146789
+    }
+  },
+  "cnn_augmented_seed42": {
+    "clean": {
+      "n": 1191,
+      "balanced_accuracy": 0.8939208929296576,
+      "accuracy": 0.8933669185558354,
+      "fake_recall": 0.9881756756756757,
+      "genuine_recall": 0.7996661101836394,
+      "false_positive_rate": 0.2003338898163606,
+      "fake_f1": 0.9020817270624518,
+      "roc_auc": 0.9812807381672156,
+      "eer": 0.08445945945945937,
+      "confusion_matrix": [
+        [
+          479,
+          120
+        ],
+        [
+          7,
+          585
+        ]
+      ],
+      "threshold": -1.6689106623331706,
+      "balanced_accuracy_ci95": {
+        "low": 0.7420466321243524,
+        "high": 0.995,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9395465994962217,
+      "error_among_decided": 0.08579088471849866
+    },
+    "noise20": {
+      "n": 1191,
+      "balanced_accuracy": 0.8812124937959662,
+      "accuracy": 0.8807724601175483,
+      "fake_recall": 0.956081081081081,
+      "genuine_recall": 0.8063439065108514,
+      "false_positive_rate": 0.19365609348914858,
+      "fake_f1": 0.8885400313971743,
+      "roc_auc": 0.9687739701303976,
+      "eer": 0.12020033388981637,
+      "confusion_matrix": [
+        [
+          483,
+          116
+        ],
+        [
+          26,
+          566
+        ]
+      ],
+      "threshold": -1.6689106623331706,
+      "balanced_accuracy_ci95": {
+        "low": 0.7105051813471503,
+        "high": 0.99,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9051217464315701,
+      "error_among_decided": 0.08998144712430427
+    },
+    "noise10": {
+      "n": 1191,
+      "balanced_accuracy": 0.8847191828723548,
+      "accuracy": 0.8841309823677582,
+      "fake_recall": 0.9847972972972973,
+      "genuine_recall": 0.7846410684474123,
+      "false_positive_rate": 0.21535893155258765,
+      "fake_f1": 0.8941717791411042,
+      "roc_auc": 0.9640871046338492,
+      "eer": 0.1285475792988314,
+      "confusion_matrix": [
+        [
+          470,
+          129
+        ],
+        [
+          9,
+          583
+        ]
+      ],
+      "threshold": -1.6689106623331706,
+      "balanced_accuracy_ci95": {
+        "low": 0.7044559585492228,
+        "high": 0.9924999999999999,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9143576826196473,
+      "error_among_decided": 0.10192837465564739
+    },
+    "noise5": {
+      "n": 1191,
+      "balanced_accuracy": 0.8639201597256689,
+      "accuracy": 0.8631402183039463,
+      "fake_recall": 0.9966216216216216,
+      "genuine_recall": 0.7312186978297162,
+      "false_positive_rate": 0.2687813021702838,
+      "fake_f1": 0.8786299329858526,
+      "roc_auc": 0.954535712674277,
+      "eer": 0.14020270270270274,
+      "confusion_matrix": [
+        [
+          438,
+          161
+        ],
+        [
+          2,
+          590
+        ]
+      ],
+      "threshold": -1.6689106623331706,
+      "balanced_accuracy_ci95": {
+        "low": 0.7099093264248705,
+        "high": 0.9975,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.832913518052057,
+      "error_among_decided": 0.12903225806451613
+    },
+    "opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.9038586269909308,
+      "accuracy": 0.9034424853064652,
+      "fake_recall": 0.9746621621621622,
+      "genuine_recall": 0.8330550918196995,
+      "false_positive_rate": 0.1669449081803005,
+      "fake_f1": 0.9093774625689519,
+      "roc_auc": 0.9805277940711998,
+      "eer": 0.08952702702702693,
+      "confusion_matrix": [
+        [
+          499,
+          100
+        ],
+        [
+          15,
+          577
+        ]
+      ],
+      "threshold": -1.6689106623331706,
+      "balanced_accuracy_ci95": {
+        "low": 0.7539119170984456,
+        "high": 0.9924999999999999,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.926112510495382,
+      "error_among_decided": 0.0743427017225748
+    },
+    "gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.8829411631999278,
+      "accuracy": 0.8824517212426533,
+      "fake_recall": 0.9662162162162162,
+      "genuine_recall": 0.7996661101836394,
+      "false_positive_rate": 0.2003338898163606,
+      "fake_f1": 0.8909657320872274,
+      "roc_auc": 0.972998353111041,
+      "eer": 0.10641891891891904,
+      "confusion_matrix": [
+        [
+          479,
+          120
+        ],
+        [
+          20,
+          572
+        ]
+      ],
+      "threshold": -1.6689106623331706,
+      "balanced_accuracy_ci95": {
+        "low": 0.728458549222798,
+        "high": 0.9924999999999999,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9118387909319899,
+      "error_among_decided": 0.08379373848987108
+    },
+    "noise10_opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.8905326444975861,
+      "accuracy": 0.8900083963056256,
+      "fake_recall": 0.9797297297297297,
+      "genuine_recall": 0.8013355592654424,
+      "false_positive_rate": 0.1986644407345576,
+      "fake_f1": 0.8985282726568552,
+      "roc_auc": 0.964383206244642,
+      "eer": 0.12500000000000006,
+      "confusion_matrix": [
+        [
+          480,
+          119
+        ],
+        [
+          12,
+          580
+        ]
+      ],
+      "threshold": -1.6689106623331706,
+      "balanced_accuracy_ci95": {
+        "low": 0.7016839378238342,
+        "high": 0.9924999999999999,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9286314021830394,
+      "error_among_decided": 0.09403254972875226
+    },
+    "noise10_gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.8872529666561386,
+      "accuracy": 0.8866498740554156,
+      "fake_recall": 0.9898648648648649,
+      "genuine_recall": 0.7846410684474123,
+      "false_positive_rate": 0.21535893155258765,
+      "fake_f1": 0.8967100229533282,
+      "roc_auc": 0.9630831791724948,
+      "eer": 0.12837837837837837,
+      "confusion_matrix": [
+        [
+          470,
+          129
+        ],
+        [
+          6,
+          586
+        ]
+      ],
+      "threshold": -1.6689106623331706,
+      "balanced_accuracy_ci95": {
+        "low": 0.7071373056994819,
+        "high": 0.995,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9185558354324097,
+      "error_among_decided": 0.09689213893967093
+    },
+    "opus12": {
+      "n": 1191,
+      "balanced_accuracy": 0.9045946509949014,
+      "accuracy": 0.9042821158690176,
+      "fake_recall": 0.9577702702702703,
+      "genuine_recall": 0.8514190317195326,
+      "false_positive_rate": 0.14858096828046743,
+      "fake_f1": 0.9086538461538461,
+      "roc_auc": 0.9799694310337048,
+      "eer": 0.08614864864864863,
+      "confusion_matrix": [
+        [
+          510,
+          89
+        ],
+        [
+          25,
+          567
+        ]
+      ],
+      "threshold": -1.6689106623331706,
+      "balanced_accuracy_ci95": {
+        "low": 0.7381865284974093,
+        "high": 0.9875,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9210747271200672,
+      "error_among_decided": 0.06289881494986327
+    }
+  },
+  "cnn_ordinary_seed123": {
+    "clean": {
+      "n": 1191,
+      "balanced_accuracy": 0.9379441524161891,
+      "accuracy": 0.9378673383711167,
+      "fake_recall": 0.9510135135135135,
+      "genuine_recall": 0.9248747913188647,
+      "false_positive_rate": 0.07512520868113523,
+      "fake_f1": 0.9383333333333334,
+      "roc_auc": 0.9805362541172224,
+      "eer": 0.05676126878130217,
+      "confusion_matrix": [
+        [
+          554,
+          45
+        ],
+        [
+          29,
+          563
+        ]
+      ],
+      "threshold": -1.316068967183431,
+      "balanced_accuracy_ci95": {
+        "low": 0.8356865284974093,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9429051217464316,
+      "error_among_decided": 0.04007123775601069
+    },
+    "noise20": {
+      "n": 1191,
+      "balanced_accuracy": 0.8710280083923656,
+      "accuracy": 0.8706968933669186,
+      "fake_recall": 0.9273648648648649,
+      "genuine_recall": 0.8146911519198664,
+      "false_positive_rate": 0.18530884808013356,
+      "fake_f1": 0.8769968051118211,
+      "roc_auc": 0.946430988584578,
+      "eer": 0.1302170283806344,
+      "confusion_matrix": [
+        [
+          488,
+          111
+        ],
+        [
+          43,
+          549
+        ]
+      ],
+      "threshold": -1.316068967183431,
+      "balanced_accuracy_ci95": {
+        "low": 0.6755051813471503,
+        "high": 0.9899497487437185,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9387069689336692,
+      "error_among_decided": 0.1073345259391771
+    },
+    "noise10": {
+      "n": 1191,
+      "balanced_accuracy": 0.8404787822045752,
+      "accuracy": 0.8396305625524769,
+      "fake_recall": 0.9847972972972973,
+      "genuine_recall": 0.6961602671118531,
+      "false_positive_rate": 0.3038397328881469,
+      "fake_f1": 0.8592483419307295,
+      "roc_auc": 0.9394881108153228,
+      "eer": 0.14691151919866444,
+      "confusion_matrix": [
+        [
+          417,
+          182
+        ],
+        [
+          9,
+          583
+        ]
+      ],
+      "threshold": -1.316068967183431,
+      "balanced_accuracy_ci95": {
+        "low": 0.6999093264248705,
+        "high": 0.9724999999999999,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9000839630562553,
+      "error_among_decided": 0.14458955223880596
+    },
+    "noise5": {
+      "n": 1191,
+      "balanced_accuracy": 0.7670625028200153,
+      "accuracy": 0.7657430730478589,
+      "fake_recall": 0.9915540540540541,
+      "genuine_recall": 0.5425709515859767,
+      "false_positive_rate": 0.4574290484140234,
+      "fake_f1": 0.8079834824501032,
+      "roc_auc": 0.9325226729233409,
+      "eer": 0.15033783783783788,
+      "confusion_matrix": [
+        [
+          325,
+          274
+        ],
+        [
+          5,
+          587
+        ]
+      ],
+      "threshold": -1.316068967183431,
+      "balanced_accuracy_ci95": {
+        "low": 0.6733668341708543,
+        "high": 0.9425,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.8371116708648195,
+      "error_among_decided": 0.2226680040120361
+    },
+    "opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.9303329310111447,
+      "accuracy": 0.9303106633081444,
+      "fake_recall": 0.9341216216216216,
+      "genuine_recall": 0.9265442404006677,
+      "false_positive_rate": 0.07345575959933222,
+      "fake_f1": 0.9301934398654331,
+      "roc_auc": 0.9780461805712224,
+      "eer": 0.0667779632721202,
+      "confusion_matrix": [
+        [
+          555,
+          44
+        ],
+        [
+          39,
+          553
+        ]
+      ],
+      "threshold": -1.316068967183431,
+      "balanced_accuracy_ci95": {
+        "low": 0.8122797927461141,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9445843828715366,
+      "error_among_decided": 0.04622222222222222
+    },
+    "gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.8846797026575824,
+      "accuracy": 0.8841309823677582,
+      "fake_recall": 0.9780405405405406,
+      "genuine_recall": 0.7913188647746243,
+      "false_positive_rate": 0.20868113522537562,
+      "fake_f1": 0.8935185185185185,
+      "roc_auc": 0.9813145783513062,
+      "eer": 0.07512520868113523,
+      "confusion_matrix": [
+        [
+          474,
+          125
+        ],
+        [
+          13,
+          579
+        ]
+      ],
+      "threshold": -1.316068967183431,
+      "balanced_accuracy_ci95": {
+        "low": 0.7293652849740933,
+        "high": 0.985,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9303106633081444,
+      "error_among_decided": 0.08935018050541517
+    },
+    "noise10_opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.8371004038261969,
+      "accuracy": 0.836272040302267,
+      "fake_recall": 0.9780405405405406,
+      "genuine_recall": 0.6961602671118531,
+      "false_positive_rate": 0.3038397328881469,
+      "fake_f1": 0.8558758314855875,
+      "roc_auc": 0.9427959888101791,
+      "eer": 0.1486486486486487,
+      "confusion_matrix": [
+        [
+          417,
+          182
+        ],
+        [
+          13,
+          579
+        ]
+      ],
+      "threshold": -1.316068967183431,
+      "balanced_accuracy_ci95": {
+        "low": 0.7021373056994819,
+        "high": 0.9775,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9017632241813602,
+      "error_among_decided": 0.13687150837988826
+    },
+    "noise10_gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.8726086269909308,
+      "accuracy": 0.8723761544920235,
+      "fake_recall": 0.9121621621621622,
+      "genuine_recall": 0.8330550918196995,
+      "false_positive_rate": 0.1669449081803005,
+      "fake_f1": 0.8766233766233766,
+      "roc_auc": 0.9459656860533321,
+      "eer": 0.14357262103505844,
+      "confusion_matrix": [
+        [
+          499,
+          100
+        ],
+        [
+          52,
+          540
+        ]
+      ],
+      "threshold": -1.316068967183431,
+      "balanced_accuracy_ci95": {
+        "low": 0.6722797927461139,
+        "high": 0.992462311557789,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9622166246851386,
+      "error_among_decided": 0.112565445026178
+    },
+    "opus12": {
+      "n": 1191,
+      "balanced_accuracy": 0.9227217096061002,
+      "accuracy": 0.9227539882451721,
+      "fake_recall": 0.9172297297297297,
+      "genuine_recall": 0.9282136894824707,
+      "false_positive_rate": 0.07178631051752922,
+      "fake_f1": 0.9219015280135824,
+      "roc_auc": 0.9745578215945494,
+      "eer": 0.07679465776293823,
+      "confusion_matrix": [
+        [
+          556,
+          43
+        ],
+        [
+          49,
+          543
+        ]
+      ],
+      "threshold": -1.316068967183431,
+      "balanced_accuracy_ci95": {
+        "low": 0.7914637305699481,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9378673383711167,
+      "error_among_decided": 0.051924798567591766
+    }
+  },
+  "cnn_ordinary_seed2024": {
+    "clean": {
+      "n": 1191,
+      "balanced_accuracy": 0.8910416572666155,
+      "accuracy": 0.890848026868178,
+      "fake_recall": 0.9239864864864865,
+      "genuine_recall": 0.8580968280467446,
+      "false_positive_rate": 0.1419031719532554,
+      "fake_f1": 0.8937908496732027,
+      "roc_auc": 0.9684835085502865,
+      "eer": 0.10135135135135127,
+      "confusion_matrix": [
+        [
+          514,
+          85
+        ],
+        [
+          45,
+          547
+        ]
+      ],
+      "threshold": -0.6254769961039225,
+      "balanced_accuracy_ci95": {
+        "low": 0.6968264248704663,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9571788413098237,
+      "error_among_decided": 0.09385964912280702
+    },
+    "noise20": {
+      "n": 1191,
+      "balanced_accuracy": 0.8719219532554257,
+      "accuracy": 0.871536523929471,
+      "fake_recall": 0.9375,
+      "genuine_recall": 0.8063439065108514,
+      "false_positive_rate": 0.19365609348914858,
+      "fake_f1": 0.8788598574821853,
+      "roc_auc": 0.9353257681721788,
+      "eer": 0.15540540540540543,
+      "confusion_matrix": [
+        [
+          483,
+          116
+        ],
+        [
+          37,
+          555
+        ]
+      ],
+      "threshold": -0.6254769961039225,
+      "balanced_accuracy_ci95": {
+        "low": 0.678639896373057,
+        "high": 0.9899497487437185,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9706129303106633,
+      "error_among_decided": 0.11678200692041522
+    },
+    "noise10": {
+      "n": 1191,
+      "balanced_accuracy": 0.8463218539908857,
+      "accuracy": 0.8455079764903443,
+      "fake_recall": 0.9847972972972973,
+      "genuine_recall": 0.7078464106844741,
+      "false_positive_rate": 0.2921535893155259,
+      "fake_f1": 0.8637037037037038,
+      "roc_auc": 0.9328356946261789,
+      "eer": 0.15859766277128548,
+      "confusion_matrix": [
+        [
+          424,
+          175
+        ],
+        [
+          9,
+          583
+        ]
+      ],
+      "threshold": -0.6254769961039225,
+      "balanced_accuracy_ci95": {
+        "low": 0.6950000000000001,
+        "high": 0.9775,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9336691855583543,
+      "error_among_decided": 0.13758992805755396
+    },
+    "noise5": {
+      "n": 1191,
+      "balanced_accuracy": 0.7645681992510038,
+      "accuracy": 0.7632241813602015,
+      "fake_recall": 0.9932432432432432,
+      "genuine_recall": 0.5358931552587646,
+      "false_positive_rate": 0.46410684474123537,
+      "fake_f1": 0.8065843621399177,
+      "roc_auc": 0.9299592789784776,
+      "eer": 0.15525876460767946,
+      "confusion_matrix": [
+        [
+          321,
+          278
+        ],
+        [
+          4,
+          588
+        ]
+      ],
+      "threshold": -0.6254769961039225,
+      "balanced_accuracy_ci95": {
+        "low": 0.635678391959799,
+        "high": 0.99,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9168765743073047,
+      "error_among_decided": 0.21520146520146521
+    },
+    "opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.8842849005098588,
+      "accuracy": 0.8841309823677582,
+      "fake_recall": 0.910472972972973,
+      "genuine_recall": 0.8580968280467446,
+      "false_positive_rate": 0.1419031719532554,
+      "fake_f1": 0.8865131578947368,
+      "roc_auc": 0.9708495014212878,
+      "eer": 0.1081081081081081,
+      "confusion_matrix": [
+        [
+          514,
+          85
+        ],
+        [
+          53,
+          539
+        ]
+      ],
+      "threshold": -0.6254769961039225,
+      "balanced_accuracy_ci95": {
+        "low": 0.6786917098445595,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9538203190596137,
+      "error_among_decided": 0.09330985915492958
+    },
+    "gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.8537850245905337,
+      "accuracy": 0.8530646515533166,
+      "fake_recall": 0.9763513513513513,
+      "genuine_recall": 0.7312186978297162,
+      "false_positive_rate": 0.2687813021702838,
+      "fake_f1": 0.8685199098422239,
+      "roc_auc": 0.976024229571809,
+      "eer": 0.07939189189189193,
+      "confusion_matrix": [
+        [
+          438,
+          161
+        ],
+        [
+          14,
+          578
+        ]
+      ],
+      "threshold": -0.6254769961039225,
+      "balanced_accuracy_ci95": {
+        "low": 0.7093652849740932,
+        "high": 0.9775,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.8270361041141897,
+      "error_among_decided": 0.1218274111675127
+    },
+    "noise10_opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.8596379664305374,
+      "accuracy": 0.8589420654911839,
+      "fake_recall": 0.9780405405405406,
+      "genuine_recall": 0.7412353923205343,
+      "false_positive_rate": 0.2587646076794658,
+      "fake_f1": 0.8733031674208145,
+      "roc_auc": 0.9373759193250012,
+      "eer": 0.15692821368948248,
+      "confusion_matrix": [
+        [
+          444,
+          155
+        ],
+        [
+          13,
+          579
+        ]
+      ],
+      "threshold": -0.6254769961039225,
+      "balanced_accuracy_ci95": {
+        "low": 0.7073186528497409,
+        "high": 0.9724999999999999,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9328295549958019,
+      "error_among_decided": 0.12151215121512152
+    },
+    "noise10_gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.8777946352028154,
+      "accuracy": 0.8774139378673383,
+      "fake_recall": 0.9425675675675675,
+      "genuine_recall": 0.8130217028380634,
+      "false_positive_rate": 0.18697829716193656,
+      "fake_f1": 0.884310618066561,
+      "roc_auc": 0.9350550466994539,
+      "eer": 0.15859766277128548,
+      "confusion_matrix": [
+        [
+          487,
+          112
+        ],
+        [
+          34,
+          558
+        ]
+      ],
+      "threshold": -0.6254769961039225,
+      "balanced_accuracy_ci95": {
+        "low": 0.675958549222798,
+        "high": 0.9949748743718593,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9756507136859782,
+      "error_among_decided": 0.11273666092943202
+    },
+    "opus12": {
+      "n": 1191,
+      "balanced_accuracy": 0.8775774940215675,
+      "accuracy": 0.8774139378673383,
+      "fake_recall": 0.9054054054054054,
+      "genuine_recall": 0.8497495826377296,
+      "false_positive_rate": 0.15025041736227046,
+      "fake_f1": 0.8801313628899836,
+      "roc_auc": 0.9694761539502774,
+      "eer": 0.11486486486486493,
+      "confusion_matrix": [
+        [
+          509,
+          90
+        ],
+        [
+          56,
+          536
+        ]
+      ],
+      "threshold": -0.6254769961039225,
+      "balanced_accuracy_ci95": {
+        "low": 0.66360103626943,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9538203190596137,
+      "error_among_decided": 0.0994718309859155
+    }
+  },
+  "cnn_ordinary_seed42": {
+    "clean": {
+      "n": 1191,
+      "balanced_accuracy": 0.8995764336957992,
+      "accuracy": 0.8992443324937027,
+      "fake_recall": 0.956081081081081,
+      "genuine_recall": 0.8430717863105175,
+      "false_positive_rate": 0.15692821368948248,
+      "fake_f1": 0.9041533546325878,
+      "roc_auc": 0.9784466227496278,
+      "eer": 0.09459459459459467,
+      "confusion_matrix": [
+        [
+          505,
+          94
+        ],
+        [
+          26,
+          566
+        ]
+      ],
+      "threshold": -1.0834029416243236,
+      "balanced_accuracy_ci95": {
+        "low": 0.7285492227979276,
+        "high": 0.9949748743718593,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.929471032745592,
+      "error_among_decided": 0.07407407407407407
+    },
+    "noise20": {
+      "n": 1191,
+      "balanced_accuracy": 0.8460948427559446,
+      "accuracy": 0.8455079764903443,
+      "fake_recall": 0.9459459459459459,
+      "genuine_recall": 0.7462437395659433,
+      "false_positive_rate": 0.25375626043405675,
+      "fake_f1": 0.8588957055214724,
+      "roc_auc": 0.9355654694761538,
+      "eer": 0.14189189189189177,
+      "confusion_matrix": [
+        [
+          447,
+          152
+        ],
+        [
+          32,
+          560
+        ]
+      ],
+      "threshold": -1.0834029416243236,
+      "balanced_accuracy_ci95": {
+        "low": 0.6964119170984456,
+        "high": 0.9475,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.7287993282955499,
+      "error_among_decided": 0.1336405529953917
+    },
+    "noise10": {
+      "n": 1191,
+      "balanced_accuracy": 0.7812133398005685,
+      "accuracy": 0.780016792611251,
+      "fake_recall": 0.9847972972972973,
+      "genuine_recall": 0.5776293823038398,
+      "false_positive_rate": 0.42237061769616024,
+      "fake_f1": 0.8165266106442577,
+      "roc_auc": 0.9447699995487975,
+      "eer": 0.14189189189189177,
+      "confusion_matrix": [
+        [
+          346,
+          253
+        ],
+        [
+          9,
+          583
+        ]
+      ],
+      "threshold": -1.0834029416243236,
+      "balanced_accuracy_ci95": {
+        "low": 0.6875,
+        "high": 0.96,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.6977329974811083,
+      "error_among_decided": 0.15764139590854392
+    },
+    "noise5": {
+      "n": 1191,
+      "balanced_accuracy": 0.7420108965392772,
+      "accuracy": 0.7405541561712846,
+      "fake_recall": 0.9898648648648649,
+      "genuine_recall": 0.4941569282136895,
+      "false_positive_rate": 0.5058430717863105,
+      "fake_f1": 0.7913571910871033,
+      "roc_auc": 0.9399139331317963,
+      "eer": 0.14023372287145242,
+      "confusion_matrix": [
+        [
+          296,
+          303
+        ],
+        [
+          6,
+          586
+        ]
+      ],
+      "threshold": -1.0834029416243236,
+      "balanced_accuracy_ci95": {
+        "low": 0.6105527638190955,
+        "high": 0.955,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.6985726280436608,
+      "error_among_decided": 0.19230769230769232
+    },
+    "opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.8977194535938275,
+      "accuracy": 0.8975650713685979,
+      "fake_recall": 0.9239864864864865,
+      "genuine_recall": 0.8714524207011686,
+      "false_positive_rate": 0.1285475792988314,
+      "fake_f1": 0.899671052631579,
+      "roc_auc": 0.9779361999729279,
+      "eer": 0.1018363939899833,
+      "confusion_matrix": [
+        [
+          522,
+          77
+        ],
+        [
+          45,
+          547
+        ]
+      ],
+      "threshold": -1.0834029416243236,
+      "balanced_accuracy_ci95": {
+        "low": 0.7194170984455959,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9160369437447523,
+      "error_among_decided": 0.06874427131072411
+    },
+    "gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.8554446036186437,
+      "accuracy": 0.8547439126784215,
+      "fake_recall": 0.9746621621621622,
+      "genuine_recall": 0.7362270450751253,
+      "false_positive_rate": 0.2637729549248748,
+      "fake_f1": 0.8696307460437076,
+      "roc_auc": 0.9753305057979516,
+      "eer": 0.09015025041736227,
+      "confusion_matrix": [
+        [
+          441,
+          158
+        ],
+        [
+          15,
+          577
+        ]
+      ],
+      "threshold": -1.0834029416243236,
+      "balanced_accuracy_ci95": {
+        "low": 0.7095466321243523,
+        "high": 0.975,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9403862300587741,
+      "error_among_decided": 0.12321428571428572
+    },
+    "noise10_opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.8229199566845644,
+      "accuracy": 0.8219983207388749,
+      "fake_recall": 0.9797297297297297,
+      "genuine_recall": 0.666110183639399,
+      "false_positive_rate": 0.333889816360601,
+      "fake_f1": 0.8454810495626822,
+      "roc_auc": 0.9443131570635743,
+      "eer": 0.14189189189189177,
+      "confusion_matrix": [
+        [
+          399,
+          200
+        ],
+        [
+          12,
+          580
+        ]
+      ],
+      "threshold": -1.0834029416243236,
+      "balanced_accuracy_ci95": {
+        "low": 0.7072279792746113,
+        "high": 0.9775,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.7355163727959698,
+      "error_among_decided": 0.1415525114155251
+    },
+    "noise10_gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.8779426860082118,
+      "accuracy": 0.8774139378673383,
+      "fake_recall": 0.9679054054054054,
+      "genuine_recall": 0.7879799666110183,
+      "false_positive_rate": 0.21202003338898165,
+      "fake_f1": 0.8869969040247678,
+      "roc_auc": 0.9423306862789333,
+      "eer": 0.1486486486486487,
+      "confusion_matrix": [
+        [
+          472,
+          127
+        ],
+        [
+          19,
+          573
+        ]
+      ],
+      "threshold": -1.0834029416243236,
+      "balanced_accuracy_ci95": {
+        "low": 0.7019559585492228,
+        "high": 0.9675,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.963056255247691,
+      "error_among_decided": 0.11159546643417612
+    },
+    "opus12": {
+      "n": 1191,
+      "balanced_accuracy": 0.8934668704597754,
+      "accuracy": 0.8933669185558354,
+      "fake_recall": 0.910472972972973,
+      "genuine_recall": 0.8764607679465777,
+      "false_positive_rate": 0.12353923205342238,
+      "fake_f1": 0.8946058091286307,
+      "roc_auc": 0.9749498037269323,
+      "eer": 0.11018363939899833,
+      "confusion_matrix": [
+        [
+          525,
+          74
+        ],
+        [
+          53,
+          539
+        ]
+      ],
+      "threshold": -1.0834029416243236,
+      "balanced_accuracy_ci95": {
+        "low": 0.7191450777202073,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      },
+      "decision_coverage": 0.9126784214945424,
+      "error_among_decided": 0.07175712971481141
+    }
+  },
+  "svm_reference": {
+    "clean": {
+      "n": 1191,
+      "balanced_accuracy": 0.9664629675585434,
+      "accuracy": 0.966414777497901,
+      "fake_recall": 0.9746621621621622,
+      "genuine_recall": 0.9582637729549248,
+      "false_positive_rate": 0.041736227045075125,
+      "fake_f1": 0.966499162479062,
+      "roc_auc": 0.9848508775887742,
+      "eer": 0.033783783783783765,
+      "confusion_matrix": [
+        [
+          574,
+          25
+        ],
+        [
+          15,
+          577
+        ]
+      ],
+      "threshold": -0.6887108662864988,
+      "balanced_accuracy_ci95": {
+        "low": 0.939818652849741,
+        "high": 0.992462311557789,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise20": {
+      "n": 1191,
+      "balanced_accuracy": 0.8085519785227632,
+      "accuracy": 0.8077246011754828,
+      "fake_recall": 0.9493243243243243,
+      "genuine_recall": 0.667779632721202,
+      "false_positive_rate": 0.332220367278798,
+      "fake_f1": 0.8307464892830746,
+      "roc_auc": 0.9296688173983667,
+      "eer": 0.14357262103505844,
+      "confusion_matrix": [
+        [
+          400,
+          199
+        ],
+        [
+          30,
+          562
+        ]
+      ],
+      "threshold": -0.6887108662864988,
+      "balanced_accuracy_ci95": {
+        "low": 0.7361809045226131,
+        "high": 0.9475,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise10": {
+      "n": 1191,
+      "balanced_accuracy": 0.6959135157695258,
+      "accuracy": 0.6943744752308985,
+      "fake_recall": 0.9577702702702703,
+      "genuine_recall": 0.4340567612687813,
+      "false_positive_rate": 0.5659432387312187,
+      "fake_f1": 0.7570093457943925,
+      "roc_auc": 0.8759982854306727,
+      "eer": 0.20777027027027034,
+      "confusion_matrix": [
+        [
+          260,
+          339
+        ],
+        [
+          25,
+          567
+        ]
+      ],
+      "threshold": -0.6887108662864988,
+      "balanced_accuracy_ci95": {
+        "low": 0.5945466321243523,
+        "high": 0.8725,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise5": {
+      "n": 1191,
+      "balanced_accuracy": 0.6584298718585029,
+      "accuracy": 0.6565910999160369,
+      "fake_recall": 0.9712837837837838,
+      "genuine_recall": 0.34557595993322204,
+      "false_positive_rate": 0.654424040066778,
+      "fake_f1": 0.7376523412443874,
+      "roc_auc": 0.8626060325768172,
+      "eer": 0.21959459459459468,
+      "confusion_matrix": [
+        [
+          207,
+          392
+        ],
+        [
+          17,
+          575
+        ]
+      ],
+      "threshold": -0.6887108662864988,
+      "balanced_accuracy_ci95": {
+        "low": 0.5673186528497409,
+        "high": 0.81,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.9664629675585434,
+      "accuracy": 0.966414777497901,
+      "fake_recall": 0.9746621621621622,
+      "genuine_recall": 0.9582637729549248,
+      "false_positive_rate": 0.041736227045075125,
+      "fake_f1": 0.966499162479062,
+      "roc_auc": 0.985626381807517,
+      "eer": 0.03005008347245409,
+      "confusion_matrix": [
+        [
+          574,
+          25
+        ],
+        [
+          15,
+          577
+        ]
+      ],
+      "threshold": -0.6887108662864988,
+      "balanced_accuracy_ci95": {
+        "low": 0.9294559585492228,
+        "high": 0.992462311557789,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.9537743085322384,
+      "accuracy": 0.9538203190596137,
+      "fake_recall": 0.9459459459459459,
+      "genuine_recall": 0.9616026711185309,
+      "false_positive_rate": 0.038397328881469114,
+      "fake_f1": 0.9531914893617022,
+      "roc_auc": 0.985457180887064,
+      "eer": 0.043918918918918956,
+      "confusion_matrix": [
+        [
+          576,
+          23
+        ],
+        [
+          32,
+          560
+        ]
+      ],
+      "threshold": -0.6887108662864988,
+      "balanced_accuracy_ci95": {
+        "low": 0.8905051813471503,
+        "high": 0.9949748743718593,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise10_opus24": {
+      "n": 1191,
+      "balanced_accuracy": 0.7718240987230971,
+      "accuracy": 0.7707808564231738,
+      "fake_recall": 0.9493243243243243,
+      "genuine_recall": 0.5943238731218697,
+      "false_positive_rate": 0.4056761268781302,
+      "fake_f1": 0.8045812455261274,
+      "roc_auc": 0.9116545594008031,
+      "eer": 0.17028380634390652,
+      "confusion_matrix": [
+        [
+          356,
+          243
+        ],
+        [
+          30,
+          562
+        ]
+      ],
+      "threshold": -0.6887108662864988,
+      "balanced_accuracy_ci95": {
+        "low": 0.6742746113989637,
+        "high": 0.94,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise10_gsm13": {
+      "n": 1191,
+      "balanced_accuracy": 0.7805633262644949,
+      "accuracy": 0.781696053736356,
+      "fake_recall": 0.5878378378378378,
+      "genuine_recall": 0.9732888146911519,
+      "false_positive_rate": 0.02671118530884808,
+      "fake_f1": 0.7280334728033473,
+      "roc_auc": 0.9589772368361684,
+      "eer": 0.09849749582637729,
+      "confusion_matrix": [
+        [
+          583,
+          16
+        ],
+        [
+          244,
+          348
+        ]
+      ],
+      "threshold": -0.6887108662864988,
+      "balanced_accuracy_ci95": {
+        "low": 0.7501554404145078,
+        "high": 0.8225,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "opus12": {
+      "n": 1191,
+      "balanced_accuracy": 0.9606100257185399,
+      "accuracy": 0.9605373635600336,
+      "fake_recall": 0.972972972972973,
+      "genuine_recall": 0.9482470784641068,
+      "false_positive_rate": 0.05175292153589316,
+      "fake_f1": 0.9608006672226855,
+      "roc_auc": 0.9840669133240084,
+      "eer": 0.038397328881469114,
+      "confusion_matrix": [
+        [
+          568,
+          31
+        ],
+        [
+          16,
+          576
+        ]
+      ],
+      "threshold": -0.6887108662864988,
+      "balanced_accuracy_ci95": {
+        "low": 0.9043652849740933,
+        "high": 1.0,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    }
+  },
+  "svm_without_tacotron": {
+    "clean": {
+      "n": 892,
+      "balanced_accuracy": 0.8136399117983898,
+      "accuracy": 0.8621076233183856,
+      "fake_recall": 0.6723549488054608,
+      "genuine_recall": 0.9549248747913188,
+      "false_positive_rate": 0.045075125208681135,
+      "fake_f1": 0.7620889748549323,
+      "roc_auc": 0.9105505763302888,
+      "eer": 0.11945392491467581,
+      "confusion_matrix": [
+        [
+          572,
+          27
+        ],
+        [
+          96,
+          197
+        ]
+      ],
+      "threshold": -0.6190714577599801,
+      "balanced_accuracy_ci95": {
+        "low": 0.685,
+        "high": 0.995,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise20": {
+      "n": 892,
+      "balanced_accuracy": 0.7370475251699362,
+      "accuracy": 0.726457399103139,
+      "fake_recall": 0.7679180887372014,
+      "genuine_recall": 0.7061769616026711,
+      "false_positive_rate": 0.2938230383973289,
+      "fake_f1": 0.6484149855907781,
+      "roc_auc": 0.809489080207627,
+      "eer": 0.25255972696245726,
+      "confusion_matrix": [
+        [
+          423,
+          176
+        ],
+        [
+          68,
+          225
+        ]
+      ],
+      "threshold": -0.6190714577599801,
+      "balanced_accuracy_ci95": {
+        "low": 0.6493548387096775,
+        "high": 0.835,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise10": {
+      "n": 892,
+      "balanced_accuracy": 0.6812292387198231,
+      "accuracy": 0.5952914798206278,
+      "fake_recall": 0.931740614334471,
+      "genuine_recall": 0.4307178631051753,
+      "false_positive_rate": 0.5692821368948247,
+      "fake_f1": 0.6019845644983461,
+      "roc_auc": 0.7942133362202077,
+      "eer": 0.2798634812286689,
+      "confusion_matrix": [
+        [
+          258,
+          341
+        ],
+        [
+          20,
+          273
+        ]
+      ],
+      "threshold": -0.6190714577599801,
+      "balanced_accuracy_ci95": {
+        "low": 0.5556182795698925,
+        "high": 0.8674999999999999,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise5": {
+      "n": 892,
+      "balanced_accuracy": 0.6382679893109677,
+      "accuracy": 0.523542600896861,
+      "fake_recall": 0.9726962457337884,
+      "genuine_recall": 0.3038397328881469,
+      "false_positive_rate": 0.6961602671118531,
+      "fake_f1": 0.5728643216080402,
+      "roc_auc": 0.7873816998752187,
+      "eer": 0.2832764505119454,
+      "confusion_matrix": [
+        [
+          182,
+          417
+        ],
+        [
+          8,
+          285
+        ]
+      ],
+      "threshold": -0.6190714577599801,
+      "balanced_accuracy_ci95": {
+        "low": 0.5396236559139785,
+        "high": 0.795,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "opus24": {
+      "n": 892,
+      "balanced_accuracy": 0.8113209159748614,
+      "accuracy": 0.8531390134529148,
+      "fake_recall": 0.689419795221843,
+      "genuine_recall": 0.9332220367278798,
+      "false_positive_rate": 0.0667779632721202,
+      "fake_f1": 0.7551401869158878,
+      "roc_auc": 0.9080093671477492,
+      "eer": 0.11686143572621036,
+      "confusion_matrix": [
+        [
+          559,
+          40
+        ],
+        [
+          91,
+          202
+        ]
+      ],
+      "threshold": -0.6190714577599801,
+      "balanced_accuracy_ci95": {
+        "low": 0.7849999999999999,
+        "high": 0.85,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "gsm13": {
+      "n": 892,
+      "balanced_accuracy": 0.7851310773929245,
+      "accuracy": 0.8542600896860987,
+      "fake_recall": 0.5836177474402731,
+      "genuine_recall": 0.986644407345576,
+      "false_positive_rate": 0.01335559265442404,
+      "fake_f1": 0.7245762711864406,
+      "roc_auc": 0.9477228828479776,
+      "eer": 0.09015025041736227,
+      "confusion_matrix": [
+        [
+          591,
+          8
+        ],
+        [
+          122,
+          171
+        ]
+      ],
+      "threshold": -0.6190714577599801,
+      "balanced_accuracy_ci95": {
+        "low": 0.755,
+        "high": 0.8200000000000001,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise10_opus24": {
+      "n": 892,
+      "balanced_accuracy": 0.7061969038271978,
+      "accuracy": 0.6311659192825112,
+      "fake_recall": 0.9249146757679181,
+      "genuine_recall": 0.48747913188647746,
+      "false_positive_rate": 0.5125208681135225,
+      "fake_f1": 0.6222732491389208,
+      "roc_auc": 0.8207080059484806,
+      "eer": 0.2559726962457338,
+      "confusion_matrix": [
+        [
+          292,
+          307
+        ],
+        [
+          22,
+          271
+        ]
+      ],
+      "threshold": -0.6190714577599801,
+      "balanced_accuracy_ci95": {
+        "low": 0.5923655913978494,
+        "high": 0.8975,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise10_gsm13": {
+      "n": 892,
+      "balanced_accuracy": 0.7555624561983283,
+      "accuracy": 0.7993273542600897,
+      "fake_recall": 0.6279863481228669,
+      "genuine_recall": 0.8831385642737897,
+      "false_positive_rate": 0.11686143572621036,
+      "fake_f1": 0.6727605118829981,
+      "roc_auc": 0.8879873737229853,
+      "eer": 0.1686143572621035,
+      "confusion_matrix": [
+        [
+          529,
+          70
+        ],
+        [
+          109,
+          184
+        ]
+      ],
+      "threshold": -0.6190714577599801,
+      "balanced_accuracy_ci95": {
+        "low": 0.6422043010752688,
+        "high": 0.85,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "opus12": {
+      "n": 892,
+      "balanced_accuracy": 0.8229130462032853,
+      "accuracy": 0.8452914798206278,
+      "fake_recall": 0.757679180887372,
+      "genuine_recall": 0.8881469115191987,
+      "false_positive_rate": 0.11185308848080133,
+      "fake_f1": 0.7628865979381443,
+      "roc_auc": 0.8999868951095968,
+      "eer": 0.13651877133105797,
+      "confusion_matrix": [
+        [
+          532,
+          67
+        ],
+        [
+          71,
+          222
+        ]
+      ],
+      "threshold": -0.6190714577599801,
+      "balanced_accuracy_ci95": {
+        "low": 0.7626075268817205,
+        "high": 0.87,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    }
+  },
+  "svm_without_tts": {
+    "clean": {
+      "n": 898,
+      "balanced_accuracy": 0.5016722408026756,
+      "accuracy": 0.6681514476614699,
+      "fake_recall": 0.0033444816053511705,
+      "genuine_recall": 1.0,
+      "false_positive_rate": 0.0,
+      "fake_f1": 0.006666666666666667,
+      "roc_auc": 0.8468350260467558,
+      "eer": 0.2408026755852842,
+      "confusion_matrix": [
+        [
+          599,
+          0
+        ],
+        [
+          298,
+          1
+        ]
+      ],
+      "threshold": 0.3434507415515508,
+      "balanced_accuracy_ci95": {
+        "low": 0.5,
+        "high": 0.505,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise20": {
+      "n": 898,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.6670378619153675,
+      "fake_recall": 0.0,
+      "genuine_recall": 1.0,
+      "false_positive_rate": 0.0,
+      "fake_f1": 0.0,
+      "roc_auc": 0.785986677907996,
+      "eer": 0.28093645484949836,
+      "confusion_matrix": [
+        [
+          599,
+          0
+        ],
+        [
+          299,
+          0
+        ]
+      ],
+      "threshold": 0.3434507415515508,
+      "balanced_accuracy_ci95": {
+        "low": 0.5,
+        "high": 0.5,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise10": {
+      "n": 898,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.6670378619153675,
+      "fake_recall": 0.0,
+      "genuine_recall": 1.0,
+      "false_positive_rate": 0.0,
+      "fake_f1": 0.0,
+      "roc_auc": 0.7402471231316409,
+      "eer": 0.33889816360601,
+      "confusion_matrix": [
+        [
+          599,
+          0
+        ],
+        [
+          299,
+          0
+        ]
+      ],
+      "threshold": 0.3434507415515508,
+      "balanced_accuracy_ci95": {
+        "low": 0.5,
+        "high": 0.5,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise5": {
+      "n": 898,
+      "balanced_accuracy": 0.5016722408026756,
+      "accuracy": 0.6681514476614699,
+      "fake_recall": 0.0033444816053511705,
+      "genuine_recall": 1.0,
+      "false_positive_rate": 0.0,
+      "fake_f1": 0.006666666666666667,
+      "roc_auc": 0.7333962401103288,
+      "eer": 0.31438127090301,
+      "confusion_matrix": [
+        [
+          599,
+          0
+        ],
+        [
+          298,
+          1
+        ]
+      ],
+      "threshold": 0.3434507415515508,
+      "balanced_accuracy_ci95": {
+        "low": 0.5,
+        "high": 0.505,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "opus24": {
+      "n": 898,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.6670378619153675,
+      "fake_recall": 0.0,
+      "genuine_recall": 1.0,
+      "false_positive_rate": 0.0,
+      "fake_f1": 0.0,
+      "roc_auc": 0.7822234381717578,
+      "eer": 0.3038397328881469,
+      "confusion_matrix": [
+        [
+          599,
+          0
+        ],
+        [
+          299,
+          0
+        ]
+      ],
+      "threshold": 0.3434507415515508,
+      "balanced_accuracy_ci95": {
+        "low": 0.5,
+        "high": 0.5,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "gsm13": {
+      "n": 898,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.6670378619153675,
+      "fake_recall": 0.0,
+      "genuine_recall": 1.0,
+      "false_positive_rate": 0.0,
+      "fake_f1": 0.0,
+      "roc_auc": 0.9017370087269194,
+      "eer": 0.18394648829431431,
+      "confusion_matrix": [
+        [
+          599,
+          0
+        ],
+        [
+          299,
+          0
+        ]
+      ],
+      "threshold": 0.3434507415515508,
+      "balanced_accuracy_ci95": {
+        "low": 0.5,
+        "high": 0.5,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise10_opus24": {
+      "n": 898,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.6670378619153675,
+      "fake_recall": 0.0,
+      "genuine_recall": 1.0,
+      "false_positive_rate": 0.0,
+      "fake_f1": 0.0,
+      "roc_auc": 0.7756293934707232,
+      "eer": 0.29716193656093487,
+      "confusion_matrix": [
+        [
+          599,
+          0
+        ],
+        [
+          299,
+          0
+        ]
+      ],
+      "threshold": 0.3434507415515508,
+      "balanced_accuracy_ci95": {
+        "low": 0.5,
+        "high": 0.5,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "noise10_gsm13": {
+      "n": 898,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.6670378619153675,
+      "fake_recall": 0.0,
+      "genuine_recall": 1.0,
+      "false_positive_rate": 0.0,
+      "fake_f1": 0.0,
+      "roc_auc": 0.8684596959257627,
+      "eer": 0.21035058430717862,
+      "confusion_matrix": [
+        [
+          599,
+          0
+        ],
+        [
+          299,
+          0
+        ]
+      ],
+      "threshold": 0.3434507415515508,
+      "balanced_accuracy_ci95": {
+        "low": 0.5,
+        "high": 0.5,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    },
+    "opus12": {
+      "n": 898,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.6670378619153675,
+      "fake_recall": 0.0,
+      "genuine_recall": 1.0,
+      "false_positive_rate": 0.0,
+      "fake_f1": 0.0,
+      "roc_auc": 0.7465954963958883,
+      "eer": 0.31772575250836116,
+      "confusion_matrix": [
+        [
+          599,
+          0
+        ],
+        [
+          299,
+          0
+        ]
+      ],
+      "threshold": 0.3434507415515508,
+      "balanced_accuracy_ci95": {
+        "low": 0.5,
+        "high": 0.5,
+        "resampling_unit": "speaker-folder group",
+        "independent_groups": 3,
+        "replicates": 1000,
+        "warning": "Only a few test groups; uncertainty estimates are coarse and do not establish population generalization."
+      }
+    }
+  }
+}

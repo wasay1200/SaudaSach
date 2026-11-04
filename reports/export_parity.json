@@ -1,0 +1,7 @@
+{
+  "fixtures": 10,
+  "max_absolute_logit_error": 1.430511474609375e-06,
+  "tolerance": 0.0001,
+  "passed": true,
+  "scope": "PyTorch versus ONNX on Python-generated log-mel tensors, not Android feature parity"
+}

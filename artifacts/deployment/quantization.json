@@ -1,0 +1,653 @@
+{
+  "file": "model_int8.onnx",
+  "sha256": "07728c69e49d9241fc3701fb1883edba79dce80571d6c4f8f7a16cf4ae774150",
+  "calibration_partition": "train",
+  "calibration_windows": 128,
+  "calibration_policy": "64 training clips per class, evenly rotated clean/noise10/opus24/gsm13; seed 42",
+  "calibration_records": [
+    {
+      "path": "Bonafide/Speaker_13/Part 1/507.wav",
+      "condition": "clean",
+      "window_index": 7318
+    },
+    {
+      "path": "Bonafide/Speaker_13/Part 2/463.wav",
+      "condition": "noise10",
+      "window_index": 7648
+    },
+    {
+      "path": "Bonafide/Speaker_14/Part 1/139.wav",
+      "condition": "opus24",
+      "window_index": 7731
+    },
+    {
+      "path": "Bonafide/Speaker_16/Part 2/249.wav",
+      "condition": "gsm13",
+      "window_index": 8967
+    },
+    {
+      "path": "Bonafide/Speaker_07/Part 2/263.wav",
+      "condition": "clean",
+      "window_index": 3966
+    },
+    {
+      "path": "Bonafide/Speaker_04/Part 2/271.wav",
+      "condition": "noise10",
+      "window_index": 2198
+    },
+    {
+      "path": "Bonafide/Speaker_09/Part 2/275.wav",
+      "condition": "opus24",
+      "window_index": 5174
+    },
+    {
+      "path": "Bonafide/Speaker_08/Part 1/703.wav",
+      "condition": "gsm13",
+      "window_index": 4428
+    },
+    {
+      "path": "Bonafide/Speaker_13/Part 2/306.wav",
+      "condition": "clean",
+      "window_index": 7580
+    },
+    {
+      "path": "Bonafide/Speaker_11/Part 2/260.wav",
+      "condition": "noise10",
+      "window_index": 6321
+    },
+    {
+      "path": "Bonafide/Speaker_13/Part 2/39.wav",
+      "condition": "opus24",
+      "window_index": 7624
+    },
+    {
+      "path": "Bonafide/Speaker_14/Part 1/117.wav",
+      "condition": "gsm13",
+      "window_index": 7723
+    },
+    {
+      "path": "Bonafide/Speaker_03/Part 2/267.wav",
+      "condition": "clean",
+      "window_index": 1603
+    },
+    {
+      "path": "Bonafide/Speaker_05/Part 1/505.wav",
+      "condition": "noise10",
+      "window_index": 2570
+    },
+    {
+      "path": "Bonafide/Speaker_03/Part 2/339.wav",
+      "condition": "opus24",
+      "window_index": 1703
+    },
+    {
+      "path": "Bonafide/Speaker_05/Part 1/129.wav",
+      "condition": "gsm13",
+      "window_index": 2400
+    },
+    {
+      "path": "Bonafide/Speaker_16/Part 1/298.wav",
+      "condition": "clean",
+      "window_index": 8684
+    },
+    {
+      "path": "Bonafide/Speaker_14/Part 1/263.wav",
+      "condition": "noise10",
+      "window_index": 7761
+    },
+    {
+      "path": "Bonafide/Speaker_07/Part 2/304.wav",
+      "condition": "opus24",
+      "window_index": 4035
+    },
+    {
+      "path": "Bonafide/Speaker_05/Part 2/338.wav",
+      "condition": "gsm13",
+      "window_index": 2882
+    },
+    {
+      "path": "Bonafide/Speaker_15/Part 1/303.wav",
+      "condition": "clean",
+      "window_index": 8397
+    },
+    {
+      "path": "Bonafide/Speaker_05/Part 1/111.wav",
+      "condition": "noise10",
+      "window_index": 2383
+    },
+    {
+      "path": "Bonafide/Speaker_14/Part 2/15.wav",
+      "condition": "opus24",
+      "window_index": 8061
+    },
+    {
+      "path": "Bonafide/Speaker_14/Part 2/449.wav",
+      "condition": "gsm13",
+      "window_index": 8220
+    },
+    {
+      "path": "Bonafide/Speaker_03/Part 2/459.wav",
+      "condition": "clean",
+      "window_index": 1721
+    },
+    {
+      "path": "Bonafide/Speaker_04/Part 2/139.wav",
+      "condition": "noise10",
+      "window_index": 2139
+    },
+    {
+      "path": "Bonafide/Speaker_14/Part 2/29.wav",
+      "condition": "opus24",
+      "window_index": 8143
+    },
+    {
+      "path": "Bonafide/Speaker_16/Part 1/116.wav",
+      "condition": "gsm13",
+      "window_index": 8610
+    },
+    {
+      "path": "Bonafide/Speaker_13/Part 2/339.wav",
+      "condition": "clean",
+      "window_index": 7618
+    },
+    {
+      "path": "Bonafide/Speaker_08/Part 2/15.wav",
+      "condition": "noise10",
+      "window_index": 4516
+    },
+    {
+      "path": "Bonafide/Speaker_07/Part 2/307.wav",
+      "condition": "opus24",
+      "window_index": 4044
+    },
+    {
+      "path": "Bonafide/Speaker_15/Part 1/472.wav",
+      "condition": "gsm13",
+      "window_index": 8466
+    },
+    {
+      "path": "Bonafide/Speaker_03/Part 2/472.wav",
+      "condition": "clean",
+      "window_index": 1754
+    },
+    {
+      "path": "Bonafide/Speaker_03/Part 2/258.wav",
+      "condition": "noise10",
+      "window_index": 1576
+    },
+    {
+      "path": "Bonafide/Speaker_13/Part 2/304.wav",
+      "condition": "opus24",
+      "window_index": 7575
+    },
+    {
+      "path": "Bonafide/Speaker_11/Part 2/111.wav",
+      "condition": "gsm13",
+      "window_index": 6253
+    },
+    {
+      "path": "Bonafide/Speaker_08/Part 2/116.wav",
+      "condition": "clean",
+      "window_index": 4489
+    },
+    {
+      "path": "Bonafide/Speaker_09/Part 1/460.wav",
+      "condition": "noise10",
+      "window_index": 4892
+    },
+    {
+      "path": "Bonafide/Speaker_13/Part 1/139.wav",
+      "condition": "opus24",
+      "window_index": 7147
+    },
+    {
+      "path": "Bonafide/Speaker_13/Part 1/465.wav",
+      "condition": "gsm13",
+      "window_index": 7276
+    },
+    {
+      "path": "Bonafide/Speaker_13/Part 2/106.wav",
+      "condition": "clean",
+      "window_index": 7419
+    },
+    {
+      "path": "Bonafide/Speaker_13/Part 1/288.wav",
+      "condition": "noise10",
+      "window_index": 7201
+    },
+    {
+      "path": "Bonafide/Speaker_08/Part 2/249.wav",
+      "condition": "opus24",
+      "window_index": 4533
+    },
+    {
+      "path": "Bonafide/Speaker_13/Part 2/301.wav",
+      "condition": "gsm13",
+      "window_index": 7566
+    },
+    {
+      "path": "Bonafide/Speaker_08/Part 2/339.wav",
+      "condition": "clean",
+      "window_index": 4659
+    },
+    {
+      "path": "Bonafide/Speaker_09/Part 1/307.wav",
+      "condition": "noise10",
+      "window_index": 4853
+    },
+    {
+      "path": "Bonafide/Speaker_07/Part 2/315.wav",
+      "condition": "opus24",
+      "window_index": 4062
+    },
+    {
+      "path": "Bonafide/Speaker_16/Part 2/129.wav",
+      "condition": "gsm13",
+      "window_index": 8935
+    },
+    {
+      "path": "Bonafide/Speaker_03/Part 2/470.wav",
+      "condition": "clean",
+      "window_index": 1748
+    },
+    {
+      "path": "Bonafide/Speaker_09/Part 2/16.wav",
+      "condition": "noise10",
+      "window_index": 5111
+    },
+    {
+      "path": "Bonafide/Speaker_16/Part 1/706.wav",
+      "condition": "opus24",
+      "window_index": 8871
+    },
+    {
+      "path": "Bonafide/Speaker_04/Part 1/474.wav",
+      "condition": "gsm13",
+      "window_index": 1965
+    },
+    {
+      "path": "Bonafide/Speaker_03/Part 1/677.wav",
+      "condition": "clean",
+      "window_index": 1455
+    },
+    {
+      "path": "Bonafide/Speaker_14/Part 2/116.wav",
+      "condition": "noise10",
+      "window_index": 8034
+    },
+    {
+      "path": "Bonafide/Speaker_13/Part 1/273.wav",
+      "condition": "opus24",
+      "window_index": 7183
+    },
+    {
+      "path": "Bonafide/Speaker_11/Part 2/17.wav",
+      "condition": "gsm13",
+      "window_index": 6300
+    },
+    {
+      "path": "Bonafide/Speaker_09/Part 1/529.wav",
+      "condition": "clean",
+      "window_index": 4964
+    },
+    {
+      "path": "Bonafide/Speaker_08/Part 2/202.wav",
+      "condition": "noise10",
+      "window_index": 4524
+    },
+    {
+      "path": "Bonafide/Speaker_14/Part 1/706.wav",
+      "condition": "opus24",
+      "window_index": 7982
+    },
+    {
+      "path": "Bonafide/Speaker_08/Part 1/664.wav",
+      "condition": "gsm13",
+      "window_index": 4397
+    },
+    {
+      "path": "Bonafide/Speaker_04/Part 2/339.wav",
+      "condition": "clean",
+      "window_index": 2290
+    },
+    {
+      "path": "Bonafide/Speaker_09/Part 2/271.wav",
+      "condition": "noise10",
+      "window_index": 5162
+    },
+    {
+      "path": "Bonafide/Speaker_09/Part 1/277.wav",
+      "condition": "opus24",
+      "window_index": 4820
+    },
+    {
+      "path": "Bonafide/Speaker_08/Part 1/28.wav",
+      "condition": "gsm13",
+      "window_index": 4244
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_11/101.wav",
+      "condition": "clean",
+      "window_index": 12760
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_08/139.wav",
+      "condition": "noise10",
+      "window_index": 16939
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_14/39.wav",
+      "condition": "opus24",
+      "window_index": 18862
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_13/13.wav",
+      "condition": "gsm13",
+      "window_index": 13414
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_16/449.wav",
+      "condition": "clean",
+      "window_index": 14482
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_05/316.wav",
+      "condition": "noise10",
+      "window_index": 11173
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_11/315.wav",
+      "condition": "opus24",
+      "window_index": 17951
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_15/489.wav",
+      "condition": "gsm13",
+      "window_index": 14244
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_03/276.wav",
+      "condition": "clean",
+      "window_index": 10510
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_08/10.wav",
+      "condition": "noise10",
+      "window_index": 16871
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_05/202.wav",
+      "condition": "opus24",
+      "window_index": 11047
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_16/262.wav",
+      "condition": "gsm13",
+      "window_index": 19319
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_04/116.wav",
+      "condition": "clean",
+      "window_index": 15769
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_11/273.wav",
+      "condition": "noise10",
+      "window_index": 12888
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_05/274.wav",
+      "condition": "opus24",
+      "window_index": 16151
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_07/139.wav",
+      "condition": "gsm13",
+      "window_index": 16664
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_07/306.wav",
+      "condition": "clean",
+      "window_index": 11743
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_11/100.wav",
+      "condition": "noise10",
+      "window_index": 17754
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_08/117.wav",
+      "condition": "opus24",
+      "window_index": 16922
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_16/464.wav",
+      "condition": "gsm13",
+      "window_index": 14503
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_11/472.wav",
+      "condition": "clean",
+      "window_index": 13028
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_15/248.wav",
+      "condition": "noise10",
+      "window_index": 14037
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_09/216.wav",
+      "condition": "opus24",
+      "window_index": 17250
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_07/249.wav",
+      "condition": "gsm13",
+      "window_index": 11650
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_04/474.wav",
+      "condition": "clean",
+      "window_index": 10945
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_07/259.wav",
+      "condition": "noise10",
+      "window_index": 16688
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_08/301.wav",
+      "condition": "opus24",
+      "window_index": 12026
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_14/310.wav",
+      "condition": "gsm13",
+      "window_index": 18823
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_09/458.wav",
+      "condition": "clean",
+      "window_index": 17393
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_04/459.wav",
+      "condition": "noise10",
+      "window_index": 15960
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_09/129.wav",
+      "condition": "opus24",
+      "window_index": 12214
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_16/39.wav",
+      "condition": "gsm13",
+      "window_index": 14476
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_07/277.wav",
+      "condition": "clean",
+      "window_index": 11704
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_09/467.wav",
+      "condition": "noise10",
+      "window_index": 12421
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_03/329.wav",
+      "condition": "opus24",
+      "window_index": 15641
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_09/477.wav",
+      "condition": "gsm13",
+      "window_index": 17443
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_14/317.wav",
+      "condition": "clean",
+      "window_index": 13860
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_11/301.wav",
+      "condition": "noise10",
+      "window_index": 12923
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_03/477.wav",
+      "condition": "opus24",
+      "window_index": 15712
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_03/311.wav",
+      "condition": "gsm13",
+      "window_index": 10560
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_03/475.wav",
+      "condition": "clean",
+      "window_index": 15706
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_13/260.wav",
+      "condition": "noise10",
+      "window_index": 18440
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_16/303.wav",
+      "condition": "opus24",
+      "window_index": 19386
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_16/462.wav",
+      "condition": "gsm13",
+      "window_index": 14497
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_13/265.wav",
+      "condition": "clean",
+      "window_index": 13467
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_14/458.wav",
+      "condition": "noise10",
+      "window_index": 13887
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_15/216.wav",
+      "condition": "opus24",
+      "window_index": 14034
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_08/328.wav",
+      "condition": "gsm13",
+      "window_index": 17082
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_15/10.wav",
+      "condition": "clean",
+      "window_index": 13947
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_16/111.wav",
+      "condition": "noise10",
+      "window_index": 19245
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_13/271.wav",
+      "condition": "opus24",
+      "window_index": 18467
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_14/338.wav",
+      "condition": "gsm13",
+      "window_index": 13869
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_11/216.wav",
+      "condition": "clean",
+      "window_index": 12840
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_08/306.wav",
+      "condition": "noise10",
+      "window_index": 17052
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_14/216.wav",
+      "condition": "opus24",
+      "window_index": 13735
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_15/277.wav",
+      "condition": "gsm13",
+      "window_index": 19071
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_03/338.wav",
+      "condition": "clean",
+      "window_index": 10587
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_03/464.wav",
+      "condition": "noise10",
+      "window_index": 15679
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_09/10.wav",
+      "condition": "opus24",
+      "window_index": 12154
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_04/471.wav",
+      "condition": "gsm13",
+      "window_index": 10936
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_15/316.wav",
+      "condition": "clean",
+      "window_index": 14157
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_04/14.wav",
+      "condition": "noise10",
+      "window_index": 10737
+    },
+    {
+      "path": "Spoofed_Tacotron/Speaker_11/312.wav",
+      "condition": "opus24",
+      "window_index": 17942
+    },
+    {
+      "path": "Spoofed_TTS/Speaker_07/304.wav",
+      "condition": "gsm13",
+      "window_index": 11737
+    }
+  ],
+  "full_precision_bytes": 88501,
+  "int8_bytes": 38753,
+  "storage_reduction": 0.562117942170145,
+  "default_deployment": "full precision until matched evaluation and trade-offs are recorded"
+}

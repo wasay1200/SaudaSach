@@ -15,3 +15,7 @@ data/cache/
 docs/SRS_source_snapshot.txt
 
 data/staging_*/
+
+/reports/test_predictions.csv
+
+/reference_run/

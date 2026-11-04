@@ -12,3 +12,9 @@ python -m saudasach.cli export
 # Explicit final-test access: this line is a final frozen evaluation, not tuning.
 python -m saudasach.cli evaluate --final-test
 python -m saudasach.cli benchmark
+python scripts/make_fixtures.py
+python scripts/hash_artifacts.py
+python scripts/archive_results.py
+python scripts/make_report.py
+python scripts/verify_saved_results.py
+python -m pytest -q --junitxml=reports/unit_tests.xml

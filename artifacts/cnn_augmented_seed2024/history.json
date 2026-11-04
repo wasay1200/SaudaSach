@@ -1,0 +1,52 @@
+[
+  {
+    "epoch": 1,
+    "loss": 0.2959263029255499,
+    "dev_mean_balanced_accuracy_at_zero": 0.8110416666666667
+  },
+  {
+    "epoch": 2,
+    "loss": 0.13030087951374866,
+    "dev_mean_balanced_accuracy_at_zero": 0.8014583333333333
+  },
+  {
+    "epoch": 3,
+    "loss": 0.11288172349253764,
+    "dev_mean_balanced_accuracy_at_zero": 0.799375
+  },
+  {
+    "epoch": 4,
+    "loss": 0.09124502239870307,
+    "dev_mean_balanced_accuracy_at_zero": 0.8129166666666667
+  },
+  {
+    "epoch": 5,
+    "loss": 0.07816787680368956,
+    "dev_mean_balanced_accuracy_at_zero": 0.71875
+  },
+  {
+    "epoch": 6,
+    "loss": 0.07666224939432469,
+    "dev_mean_balanced_accuracy_at_zero": 0.8175
+  },
+  {
+    "epoch": 7,
+    "loss": 0.05694314416279711,
+    "dev_mean_balanced_accuracy_at_zero": 0.8154166666666667
+  },
+  {
+    "epoch": 8,
+    "loss": 0.05717471670009373,
+    "dev_mean_balanced_accuracy_at_zero": 0.8091666666666666
+  },
+  {
+    "epoch": 9,
+    "loss": 0.05674044258222537,
+    "dev_mean_balanced_accuracy_at_zero": 0.8104166666666667
+  },
+  {
+    "epoch": 10,
+    "loss": 0.045613324761710684,
+    "dev_mean_balanced_accuracy_at_zero": 0.7841666666666667
+  }
+]

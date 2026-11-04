@@ -8,11 +8,11 @@ from hashlib import sha256
 
 root = Path("data/noise")
 (root / "audio").mkdir(parents=True, exist_ok=True)
-s = requests.get(
-    "https://api.github.com/repos/karoldvl/ESC-50/commits/master", timeout=40
+revision = (
+    json.loads((root / "source.json").read_text())["revision"]
+    if (root / "source.json").exists()
+    else "33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6"
 )
-s.raise_for_status()
-revision = s.json()["sha"]
 base = f"https://raw.githubusercontent.com/karoldvl/ESC-50/{revision}"
 r = requests.get(base + "/meta/esc50.csv", timeout=40)
 r.raise_for_status()

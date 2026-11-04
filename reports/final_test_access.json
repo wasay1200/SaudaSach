@@ -1,0 +1,10 @@
+{
+  "started_utc": "2026-11-04T16:31:23.647084+00:00",
+  "selection_sha256": "a88588809bd21c90140f6716faf8d22860822887d5fd80dcd7304e41400ee706",
+  "manifest_sha256": "8178d9630e619a8072a2726f2489ffdcd0bf998fc6bfdec9e1ac1d2e30f00d6c",
+  "purpose": "Frozen final evaluation; not a model selection loop",
+  "completed": true,
+  "prediction_sha256": "3a1df96d1fb080e4622f056af4719d82e33755f77485b81d53071bdfc0c74577",
+  "prediction_archive": "test_predictions.csv.gz",
+  "prediction_archive_sha256": "b2232d4267416d68c5e866672af02e8f16ed0eaa0dab8e99b9dedc198ac8c8a4"
+}

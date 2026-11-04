@@ -1,0 +1,287 @@
+{
+  "seed_paired_differences": {
+    "42": {
+      "clean": {
+        "difference": -0.005655540766141609,
+        "ci95": {
+          "low": -0.05025125628140703,
+          "high": 0.020000000000000018,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise20": {
+        "difference": 0.035117651040021625,
+        "ci95": {
+          "low": 0.014093264248704718,
+          "high": 0.047738693467336724,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise10": {
+        "difference": 0.10350584307178634,
+        "ci95": {
+          "low": 0.016955958549222827,
+          "high": 0.2613065326633166,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise5": {
+        "difference": 0.12190926318639173,
+        "ci95": {
+          "low": 0.04250000000000009,
+          "high": 0.27386934673366836,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "opus24": {
+        "difference": 0.006139173397103237,
+        "ci95": {
+          "low": -0.035175879396984966,
+          "high": 0.03449481865284976,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "gsm13": {
+        "difference": 0.027496559581284052,
+        "ci95": {
+          "low": 0.01749999999999996,
+          "high": 0.045226130653266305,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise10_opus24": {
+        "difference": 0.06761268781302165,
+        "ci95": {
+          "low": -0.005544041450777137,
+          "high": 0.19346733668341698,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise10_gsm13": {
+        "difference": 0.009310280647926827,
+        "ci95": {
+          "low": -0.005025125628140614,
+          "high": 0.02749999999999997,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "opus12": {
+        "difference": 0.011127780535126086,
+        "ci95": {
+          "low": -0.012562814070351758,
+          "high": 0.02750000000000008,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      }
+    },
+    "123": {
+      "clean": {
+        "difference": -0.04417131029192789,
+        "ci95": {
+          "low": -0.1270466321243524,
+          "high": 0.004999999999999893,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise20": {
+        "difference": 0.00011844064431709711,
+        "ci95": {
+          "low": -0.027638190954773822,
+          "high": 0.022499999999999964,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise10": {
+        "difference": 0.011705883680007245,
+        "ci95": {
+          "low": 0.01005025125628145,
+          "high": 0.012539817974971501,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise5": {
+        "difference": 0.015044781843613242,
+        "ci95": {
+          "low": -0.015075376884422176,
+          "high": 0.04999999999999993,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "opus24": {
+        "difference": -0.03747377385732975,
+        "ci95": {
+          "low": -0.10918393782383429,
+          "high": 0.0,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "gsm13": {
+        "difference": 0.006608705951360316,
+        "ci95": {
+          "low": -0.020725388601036343,
+          "high": 0.03768844221105527,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise10_opus24": {
+        "difference": 0.02257704281911277,
+        "ci95": {
+          "low": 0.0,
+          "high": 0.05778894472361806,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise10_gsm13": {
+        "difference": 0.018758742047556787,
+        "ci95": {
+          "low": -0.007537688442211032,
+          "high": 0.034766839378238434,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "opus12": {
+        "difference": -0.03580432477552675,
+        "ci95": {
+          "low": -0.10409326424870458,
+          "high": 0.0,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      }
+    },
+    "2024": {
+      "clean": {
+        "difference": 0.0015115282227134985,
+        "ci95": {
+          "low": -0.01005025125628145,
+          "high": 0.022500000000000075,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise20": {
+        "difference": -0.0038422709019536594,
+        "ci95": {
+          "low": -0.05321243523316055,
+          "high": 0.02749999999999997,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise10": {
+        "difference": 0.03897543202635023,
+        "ci95": {
+          "low": -0.014948186528497498,
+          "high": 0.12562814070351758,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise5": {
+        "difference": 0.1183927040563102,
+        "ci95": {
+          "low": -0.0050000000000000044,
+          "high": 0.3316582914572864,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "opus24": {
+        "difference": -0.0010716058295356934,
+        "ci95": {
+          "low": -0.017992227979274578,
+          "high": 0.022500000000000075,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "gsm13": {
+        "difference": 0.026286773000045227,
+        "ci95": {
+          "low": -0.034352331606217534,
+          "high": 0.09296482412060303,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise10_opus24": {
+        "difference": 0.01973728737084335,
+        "ci95": {
+          "low": -0.04558290155440414,
+          "high": 0.09296482412060303,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "noise10_gsm13": {
+        "difference": -0.0017286694039614359,
+        "ci95": {
+          "low": -0.02010050251256279,
+          "high": 0.03249999999999997,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      },
+      "opus12": {
+        "difference": -0.0012295266886251932,
+        "ci95": {
+          "low": -0.021670984455958497,
+          "high": 0.014999999999999902,
+          "units": "fractional balanced-accuracy difference augmented minus ordinary",
+          "groups": 3
+        }
+      }
+    }
+  },
+  "mean_degraded_gain": 0.024136452552301898,
+  "mean_degraded_gain_ci95": {
+    "low": -0.008194624352331597,
+    "high": 0.06019681742043551,
+    "resampling_unit": "folder group; same sampled groups across all fixed seed/condition pairs",
+    "groups": 3,
+    "replicates": 1000,
+    "comparisons": 24,
+    "limitation": "Conditional on these trained seeds and conditions; few groups limit population inference."
+  },
+  "positive_gain_ci_excludes_zero": false,
+  "std_degraded_gain": 0.023794186156696734,
+  "mean_clean_change": -0.016105107611785335,
+  "target_gain": 0.05,
+  "allowed_clean_loss": 0.02,
+  "target_achieved": false,
+  "degraded_conditions": [
+    "noise20",
+    "noise10",
+    "noise5",
+    "opus24",
+    "gsm13",
+    "noise10_opus24",
+    "noise10_gsm13",
+    "opus12"
+  ],
+  "units": "Fractions; multiply by 100 for percentage points.",
+  "limitations": [
+    "Folder groups are not independently verified speaker/source identities.",
+    "Only three held-out groups; intervals are coarse.",
+    "Different noise sources but limited environmental categories.",
+    "Primary controlled results cover at most six seconds per clip.",
+    "No genuine Urdu-English code-switching labels or independently collected clone generators."
+  ]
+}

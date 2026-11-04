@@ -22,6 +22,7 @@ def main():
     quant = read("reports/quantization_evaluation.json")
     bench = read("reports/host_benchmark.json")
     bundle = read("artifacts/deployment/metadata.json")
+    ci = comparison["mean_degraded_gain_ci95"]
     chosen = selection["selected"]
     meta = read(f"artifacts/{chosen}/metadata.json")
     lines = [
@@ -65,6 +66,10 @@ def main():
         lines.append(f"| {c} | {pct(a)} | {pct(b)} | {100 * (b - a):+.2f} |")
     lines += [
         "",
+        f"Overall paired folder-bootstrap 95% interval for the mean degraded gain: {100 * ci['low']:+.2f} to {100 * ci['high']:+.2f} points, conditional on the three trained seeds and fixed conditions. Only {ci['groups']} held-out groups are available.",
+    ]
+    lines += [
+        "",
         "## Selected model and SVM references",
         "",
         "| Model / condition | Clips | Balanced accuracy | EER | Genuine FPR |",
@@ -78,11 +83,11 @@ def main():
             )
     lines += [
         "",
-        "The two SVM family-holdout rows use genuine plus the held-out synthetic family only; their sample composition differs from the main comparison. They do not establish unseen modern cloning-tool robustness. Full per-class metrics, confusion matrices, all nine conditions, confidence intervals and frozen per-clip scores are in `test_metrics.json`, `test_predictions.csv` and `comparison.json`.",
+        "The two SVM family-holdout rows use genuine plus the held-out synthetic family only; their sample composition differs from the main comparison. They do not establish unseen modern cloning-tool robustness. Full per-class metrics, confusion matrices, all nine conditions, confidence intervals and frozen per-clip scores are in `test_metrics.json`, `test_predictions.csv.gz` and `comparison.json`.",
         "",
         "## Deployment evidence",
         "",
-        f"The selected CNN has {meta['parameters']:,} trainable parameters. PyTorch/ONNX maximum absolute logit error was {bundle['onnx_max_abs_error']:.8g} on ten development fixtures. INT8 export reduced the ONNX file by {pct(quant['storage_reduction'])}, with mean EER change {100 * quant['mean_eer_increase']:+.2f} points. The SRS quantization point-estimate target was **{'achieved' if quant['target_achieved'] else 'missed'}**. Full precision remains the default bundle.",
+        f"The selected CNN has {meta['parameters']:,} trainable parameters. PyTorch/ONNX maximum absolute logit error was {bundle['onnx_max_abs_error']:.8g} on ten development fixtures. INT8 export reduced the ONNX file by {pct(quant['storage_reduction'])}, with mean EER change {100 * quant['mean_eer_increase']:+.2f} points; the worst condition changed EER by {100 * quant['worst_condition_eer_increase']:+.2f} points. The SRS quantization point-estimate target was **{'achieved' if quant['target_achieved'] else 'missed'}**. Full precision remains the default bundle.",
         "",
         f"CPU-host preprocessing-plus-inference timing across {bench['runs']} warmed runs: median {bench['median_seconds']:.4f} s, p95 {bench['p95_seconds']:.4f} s. This is not an Android measurement. See `host_benchmark.json` for the exact profile.",
         "",
@@ -102,7 +107,7 @@ def main():
         "- `artifacts/*/history.json`: CNN learning histories.",
         "- `final_test_access.json`: frozen test-use record and prediction hash.",
         "- `export_parity.json`, `quantization_evaluation.json`, `host_benchmark.json`: export and deployment measurements.",
-        "- `test_predictions.csv`: per-clip reproduction of reported test metrics.",
+        "- `test_predictions.csv.gz`: per-clip reproduction of reported test metrics.",
         "",
     ]
     (ROOT / "reports/RESULTS.md").write_text("\n".join(lines))
@@ -145,7 +150,7 @@ def main():
         ),
         "FR-024": (
             "Implemented",
-            "reports/test_metrics.json; reports/test_predictions.csv",
+            "reports/test_metrics.json; reports/test_predictions.csv.gz",
             "All mandatory clean/noise/codec conditions and per-class metrics retained.",
         ),
         "FR-025": (

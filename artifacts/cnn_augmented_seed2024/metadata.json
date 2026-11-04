@@ -1,0 +1,45 @@
+{
+  "architecture": "CompactCNN temporal log-mel CNN",
+  "variant": "augmented",
+  "seed": 2024,
+  "parameters": 21393,
+  "threshold": -0.5268048644065857,
+  "uncertainty_low": -1.813007714847724,
+  "uncertainty_high": 0.7593979860345526,
+  "threshold_source": "pooled clean/noise10/opus24/gsm13 development clips only",
+  "best_dev_selection": 0.8175,
+  "elapsed_seconds": 54.213417530059814,
+  "manifest_sha256": "8178d9630e619a8072a2726f2489ffdcd0bf998fc6bfdec9e1ac1d2e30f00d6c",
+  "config_sha256": "20ef805a246fb9aed6adf9264ef5be8f88e5ce63880781a564cdc42cc9131736",
+  "training_window_count": 12666,
+  "pretrained_weights": false,
+  "training_budget": "Same windows per epoch and epoch cap; early stopping may differ.",
+  "provenance": {
+    "code_revision": "2904b8cca028aa45ce3e715aa49256c5c6472b7a",
+    "ffmpeg_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+    "source_hashes": {
+      "src/saudasach/__init__.py": "3b0d47a232efb5453dbf624137fba3d92f6e044dea800427341ba08fb6b6aac8",
+      "src/saudasach/audio.py": "926b8a8c9431d07fd61306d5d4e3fc64f4528c99de2ea1f4870b91c9a7aedb9d",
+      "src/saudasach/bundle.py": "6abf59479f63dc96292e286166bd2ab3e4e429a5ba64d61d26c04de0c0a6ad5a",
+      "src/saudasach/cli.py": "41b96dc676bb1ce339eef560f2258d267d08062748df94de0e186e31e849ccd2",
+      "src/saudasach/common.py": "dbe72a63bc79705a504b973f4cb6477b38995da2a77a1edd62fcce596c2120e8",
+      "src/saudasach/data.py": "47db4f4b39396512fa3a9575d0c6a6c0f8694c2d17a6ce077e3c2952bebe7f21",
+      "src/saudasach/evaluate.py": "b05827ff7e9dbd2d8970c890b3637a404e3ea1b5275d9793438413ac44d47812",
+      "src/saudasach/metrics.py": "def1f5b3ac414a6febc1cba446a0658b39b5ad4c8409bc87689eb5cd9433397d",
+      "src/saudasach/models.py": "f64854620b20769b9c7fd07b640d4d68d7f1b3a048a357a5a531da128d7e027e",
+      "src/saudasach/train.py": "8b80cc8dd4703b05a89d9f437064aaa69a2c1cd61fff7e031d32e859b2b20e3c"
+    },
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "environment_versions": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "librosa": "0.11.0",
+      "soundfile": "0.13.1",
+      "torch": "2.5.1+cpu",
+      "onnx": "1.23.2",
+      "onnxruntime": "1.31.1"
+    },
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39"
+  }
+}

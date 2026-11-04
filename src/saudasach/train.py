@@ -270,6 +270,13 @@ def train_svm():
         out = ROOT / "artifacts" / name
         out.mkdir(exist_ok=True)
         if (out / "metadata.json").exists():
+            saved = json.loads((out / "metadata.json").read_text())
+            if saved["manifest_sha256"] != manifest_hash or saved[
+                "config_sha256"
+            ] != sha(ROOT / "configs/study.json"):
+                raise ValueError(
+                    "Stale SVM artifacts: use a separate fresh experiment directory"
+                )
             continue
         ids = np.array([i for i in trainids if rows[i]["generator"] != exclude])
         dev = np.array([i for i in devids if rows[i]["generator"] != exclude])

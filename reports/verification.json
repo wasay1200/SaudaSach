@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "frozen_model_hashes_verified": 9,
+  "metric_groups_recomputed": 81,
+  "metric_checks": 891,
+  "prediction_rows": 91143,
+  "manifest_config_and_available_group_hash_checks": "passed",
+  "deployment_bundle_integrity": "passed",
+  "note": "Recomputation validates saved arithmetic and integrity, not population-level model quality or Android behavior."
+}

@@ -1,0 +1,44 @@
+{
+  "selected": "cnn_augmented_seed123",
+  "criterion": "highest mean development balanced accuracy at zero during checkpoint selection; ties lexical",
+  "all_models": [
+    [
+      0.8214583333333334,
+      "cnn_augmented_seed123"
+    ],
+    [
+      0.8208333333333333,
+      "cnn_augmented_seed42"
+    ],
+    [
+      0.8175,
+      "cnn_augmented_seed2024"
+    ],
+    [
+      0.7885416666666666,
+      "cnn_ordinary_seed123"
+    ],
+    [
+      0.7858333333333334,
+      "cnn_ordinary_seed2024"
+    ],
+    [
+      0.7827083333333333,
+      "cnn_ordinary_seed42"
+    ]
+  ],
+  "manifest_sha256": "8178d9630e619a8072a2726f2489ffdcd0bf998fc6bfdec9e1ac1d2e30f00d6c",
+  "config_sha256": "20ef805a246fb9aed6adf9264ef5be8f88e5ce63880781a564cdc42cc9131736",
+  "weight_hashes": {
+    "artifacts/cnn_augmented_seed123/weights.pt": "2ad844feae2be5d1ccc12fb683d7360678bf4c2dc43bc56b0658fbee622060e8",
+    "artifacts/cnn_augmented_seed2024/weights.pt": "c0d3b7513b14841734f789f0e7cb419689a2519639333a61478ee9fe3574f69c",
+    "artifacts/cnn_augmented_seed42/weights.pt": "5272fdbcc8072de24e0de601c29ec9a6faab37e727f7534281cd1345efa12e03",
+    "artifacts/cnn_ordinary_seed123/weights.pt": "8a86af1f2f240cd96a5fd7d679b61090e82e3ecb734f961320d52a6cefc5743c",
+    "artifacts/cnn_ordinary_seed2024/weights.pt": "3a18dab5c5598d27b87e6dcd622b621ece7ca278447c3adfe90a7383a162263b",
+    "artifacts/cnn_ordinary_seed42/weights.pt": "b3aff83b290322115978f7605d0d1c1f2d55b45786cce8e16bd5d8a039884ab8",
+    "artifacts/svm_reference/model.joblib": "70f8fbd6adc9927ff560a28f1980f06c84dd3a6c4544468797e36852c1ac5d8e",
+    "artifacts/svm_without_tacotron/model.joblib": "03da4d1a7591faaa9441d6b6c33172c39d870dfcc26adea91e0651bc97a8a2fa",
+    "artifacts/svm_without_tts/model.joblib": "116b21e1e7aacbd2da657e9179f0aa8efb79ebd09f44d17f22357c771fb6ded0"
+  },
+  "final_test_seen": false
+}

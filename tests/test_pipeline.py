@@ -158,3 +158,38 @@ def test_aggregate_bootstrap_preserves_pairing():
     assert ci["low"] == ci["high"] == 0
     ci = aggregate_paired_difference(y, groups, [(b, a, 0.0, 0.0)], n=30)
     assert ci["low"] == ci["high"] == 1
+
+
+def test_svm_resume_rejects_changed_manifest(tmp_path, monkeypatch):
+    from saudasach import train
+
+    records = []
+    for split in ["train", "dev", "test"]:
+        for label in ["0", "1"]:
+            key = split + label
+            records.append(
+                dict(
+                    split=split,
+                    label=label,
+                    generator="genuine" if label == "0" else "tts",
+                    group=split,
+                    sha256=key,
+                    pcm_sha256=key,
+                )
+            )
+    (tmp_path / "manifests").mkdir()
+    (tmp_path / "manifests/splits.csv").write_text("changed manifest")
+    (tmp_path / "configs").mkdir()
+    (tmp_path / "configs/study.json").write_text("{}")
+    folder = tmp_path / "artifacts/svm_reference"
+    folder.mkdir(parents=True)
+    (folder / "metadata.json").write_text(
+        json.dumps({"manifest_sha256": "old", "config_sha256": "old"})
+    )
+    monkeypatch.setattr(train, "ROOT", tmp_path)
+    monkeypatch.setattr(train, "read_csv", lambda _: records)
+    monkeypatch.setattr(
+        train, "load_cache", lambda *args: np.zeros((6, 240), dtype=np.float32)
+    )
+    with pytest.raises(ValueError, match="Stale SVM"):
+        train.train_svm()

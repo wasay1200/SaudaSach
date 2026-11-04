@@ -1,0 +1,12 @@
+{
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "cpu_threads": 2,
+  "device": "Execution host CPU, NOT an Android phone",
+  "input_profile": "Up to 15 seconds, real development audio, rolling 2s/0.5s frontend",
+  "runs": 50,
+  "median_seconds": 0.018159397000090394,
+  "p95_seconds": 0.02509032899997692,
+  "includes": "decoding/resampling, log-mel frontend and inference; excludes already-loaded model",
+  "physical_android_status": "Not performed; NFR-002/018/023 require later app/device work."
+}

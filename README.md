@@ -2,7 +2,7 @@
 
 Research model repository for the SaudaSach FYP. **The Android/React Native app is deferred.** This repository contains the model, reproducible training/evaluation tools, deployment export and SRS evidence.
 
-The study compares a from-scratch compact log-mel CNN trained normally against the same architecture trained with environmental noise and actual Opus/GSM transcoding. An MFCC-statistics linear SVM is the classical reference. No pretrained detector weights are used. Performance targets are hypotheses, not guarantees; read the measured results and limitations in `reports/`.
+The study compares a from-scratch compact log-mel CNN trained normally against the same architecture trained with environmental noise and actual Opus/GSM transcoding. An MFCC-statistics linear SVM is the classical reference. No pretrained detector weights are used. The executed study trained all nine models and evaluated 1,191 held-out clips across nine conditions. Mean CNN robustness gain was +2.41 points, with a -1.61-point clean change; the +5-point target was missed and its gain interval crosses zero. INT8 storage fell 56.21% with at most a 0.17-point condition-level EER increase. Read [the complete results](reports/RESULTS.md) and [SRS traceability](docs/SRS_TRACEABILITY.md) before making performance claims.
 
 ## Installation
 
@@ -12,11 +12,12 @@ Python 3.11 or 3.12, FFmpeg with `libopus` and `libgsm`, and sufficient disk spa
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install -e .
+python -m pip install -r requirements-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu
+python -m pip install -e . --no-deps
 python -m pytest -q
 ```
 
-For exact versions used for the completed experiment, see `requirements-lock.txt` and each checkpoint's metadata. On Windows, activate `.venv\Scripts\activate` and run the individual Python commands below rather than the Bash script.
+The locked command above targets the executed Linux CPU environment. For exact versions used for the completed experiment, see `requirements-lock.txt` and each checkpoint's metadata. On Windows, activate `.venv\Scripts\activate` and run the individual Python commands below rather than the Bash script.
 
 ## Reproduce the research experiment
 
@@ -31,7 +32,27 @@ saudasach evaluate --final-test
 saudasach benchmark
 ```
 
-Alternatively run `bash scripts/run_study.sh`. Downloads require internet; scoring with the completed bundle is local. Raw recordings, noise WAVs and large feature caches are excluded from Git. Source metadata, split manifests, recipes, weights, ONNX exports and measurements are retained. Final evaluation refuses a second execution in the same output directory: reuse the saved predictions for reporting. A genuinely new frozen experiment belongs in a separate checkout/output directory; do not delete the guard to tune on the test set.
+The repository already includes a completed frozen run. To retrain in a **disposable clone**, preserve its reference outputs first:
+
+```bash
+mkdir reference_run
+mv artifacts reports manifests reference_run/
+mkdir artifacts reports manifests
+```
+
+Then run the commands above, or `bash scripts/run_study.sh`. This reproduces the declared study; it does not create a new independent test population. For scoring only, keep the supplied outputs and skip all training/download commands.
+
+After a manually executed study, generate the remaining evidence:
+
+```bash
+python scripts/make_fixtures.py
+python scripts/hash_artifacts.py
+python scripts/archive_results.py
+python scripts/make_report.py
+python scripts/verify_saved_results.py
+```
+
+ Downloads require internet; scoring with the completed bundle is local. Raw recordings, noise WAVs and large feature caches are excluded from Git. Source metadata, split manifests, recipes, weights, ONNX exports and measurements are retained. Final evaluation refuses a second execution in the same output directory: reuse the saved predictions for reporting. A genuinely new frozen experiment belongs in a separate checkout/output directory; do not delete the guard to tune on the test set.
 
 ## Score an audio file
 
@@ -50,7 +71,7 @@ Input limits are 3–60 seconds and 20 MiB. WAV is the tested interchange format
 | `manifests/` | Corpus splits, exclusions and deterministic augmentation recipes |
 | `artifacts/` | Trained checkpoints, development-selected thresholds, deployment bundle |
 | `reports/` | Final metrics, per-clip predictions, plots, parity and host benchmark |
-| `docs/` | SRS source snapshot, requirement traceability and protocol |
+| `docs/` | Redacted SRS baseline, requirement traceability and protocol |
 | `tests/` | Input, leakage, codec, numerical and bundle checks |
 
 ## Claims and limitations

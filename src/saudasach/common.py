@@ -91,6 +91,9 @@ def run_provenance():
     }
     return {
         "code_revision": revision,
+        "ffmpeg_version": subprocess.check_output(
+            ["ffmpeg", "-version"], text=True
+        ).splitlines()[0],
         "source_hashes": sources,
         "python": sys.version,
         "environment_versions": versions,

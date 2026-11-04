@@ -10,7 +10,7 @@ def main():
         description="SaudaSach research pipeline. No app or external detector API."
     )
     s = p.add_subparsers(dest="command", required=True)
-    for name in ["audit", "features", "train", "export", "benchmark"]:
+    for name in ["audit", "features", "train", "train-svm", "export", "benchmark"]:
         s.add_parser(name)
     e = s.add_parser("evaluate")
     e.add_argument("--final-test", action="store_true")
@@ -30,6 +30,10 @@ def main():
         from .train import train_all
 
         train_all()
+    elif a.command == "train-svm":
+        from .train import train_svm
+
+        train_svm()
     elif a.command == "evaluate":
         from .evaluate import evaluate_all
 

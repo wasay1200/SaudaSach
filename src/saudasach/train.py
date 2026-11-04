@@ -224,6 +224,41 @@ def train_all():
                 },
             )
             print("SAVED", out.name, flush=True)
+    train_svm()
+    # Freeze the deployable winner using development evidence, not final-test results.
+    choices = []
+    for file in (ROOT / "artifacts").glob("cnn_*/metadata.json"):
+        m = json.loads(file.read_text())
+        choices.append((m["best_dev_selection"], file.parent.name))
+    choices.sort(key=lambda x: (-x[0], x[1]))
+    write_json(
+        ROOT / "artifacts/selection.json",
+        {
+            "selected": choices[0][1],
+            "criterion": "highest mean development balanced accuracy at zero during checkpoint selection; ties lexical",
+            "all_models": choices,
+            "manifest_sha256": manifest_hash,
+            "config_sha256": sha(ROOT / "configs/study.json"),
+            "weight_hashes": {
+                str(p.relative_to(ROOT)): sha(p)
+                for p in sorted((ROOT / "artifacts").rglob("*"))
+                if p.name in ["weights.pt", "model.joblib"]
+            },
+            "final_test_seen": False,
+        },
+    )
+    print("All models trained; selection frozen.", flush=True)
+
+
+def train_svm():
+    """Fit classical references independently of the slower codec-CNN caches."""
+    rows = read_csv(ROOT / "manifests/splits.csv")
+    assert_disjoint(rows)
+    labels = np.array([int(r["label"]) for r in rows])
+    trainids = np.array([i for i, r in enumerate(rows) if r["split"] == "train"])
+    devids = np.array([i for i, r in enumerate(rows) if r["split"] == "dev"])
+    manifest_hash = sha(ROOT / "manifests/splits.csv")
+    (ROOT / "artifacts").mkdir(exist_ok=True)
     # SVM reference and two directional generator-holdout references, no final-test access.
     sx = load_cache("clean", "svm")
     dy = labels[devids]
@@ -278,26 +313,3 @@ def train_all():
             },
         )
         print("SAVED", name, flush=True)
-    # Freeze the deployable winner using development evidence, not final-test results.
-    choices = []
-    for file in (ROOT / "artifacts").glob("cnn_*/metadata.json"):
-        m = json.loads(file.read_text())
-        choices.append((m["best_dev_selection"], file.parent.name))
-    choices.sort(key=lambda x: (-x[0], x[1]))
-    write_json(
-        ROOT / "artifacts/selection.json",
-        {
-            "selected": choices[0][1],
-            "criterion": "highest mean development balanced accuracy at zero during checkpoint selection; ties lexical",
-            "all_models": choices,
-            "manifest_sha256": manifest_hash,
-            "config_sha256": sha(ROOT / "configs/study.json"),
-            "weight_hashes": {
-                str(p.relative_to(ROOT)): sha(p)
-                for p in sorted((ROOT / "artifacts").rglob("*"))
-                if p.name in ["weights.pt", "model.joblib"]
-            },
-            "final_test_seen": False,
-        },
-    )
-    print("All models trained; selection frozen.", flush=True)

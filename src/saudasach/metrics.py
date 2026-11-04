@@ -98,3 +98,45 @@ def paired_difference(y, a, b, groups, ta, tb, n=1000):
         "units": "fractional balanced-accuracy difference augmented minus ordinary",
         "groups": len(names),
     }
+
+
+def aggregate_paired_difference(y, groups, comparisons, n=1000, seed=44):
+    """Paired cluster bootstrap of mean BA difference over fixed model/condition pairs."""
+    y = np.asarray(y)
+    groups = np.asarray(groups)
+    names = np.unique(groups)
+    rng = np.random.default_rng(seed)
+    draws = rng.integers(0, len(names), size=(n, len(names)))
+    totals = np.array(
+        [[np.sum((groups == g) & (y == label)) for label in [0, 1]] for g in names]
+    )
+    denominators = totals[draws].sum(axis=1)
+    valid = (denominators > 0).all(axis=1)
+    differences = []
+    for ordinary, augmented, ordinary_threshold, augmented_threshold in comparisons:
+        accuracies = []
+        for scores, threshold in [
+            (ordinary, ordinary_threshold),
+            (augmented, augmented_threshold),
+        ]:
+            correct = np.asarray(scores >= threshold) == y
+            counts = np.array(
+                [
+                    [np.sum((groups == g) & (y == label) & correct) for label in [0, 1]]
+                    for g in names
+                ]
+            )
+            accuracies.append(
+                (counts[draws].sum(axis=1)[valid] / denominators[valid]).mean(axis=1)
+            )
+        differences.append(accuracies[1] - accuracies[0])
+    values = np.mean(differences, axis=0)
+    return {
+        "low": float(np.quantile(values, 0.025)),
+        "high": float(np.quantile(values, 0.975)),
+        "resampling_unit": "folder group; same sampled groups across all fixed seed/condition pairs",
+        "groups": len(names),
+        "replicates": int(valid.sum()),
+        "comparisons": len(comparisons),
+        "limitation": "Conditional on these trained seeds and conditions; few groups limit population inference.",
+    }

@@ -145,3 +145,16 @@ def test_mismatched_frontend_rejected(tmp_path):
     (tmp_path / "metadata.json").write_text(json.dumps(m))
     with pytest.raises(ValueError, match="frontend"):
         load_bundle(tmp_path)
+
+
+def test_aggregate_bootstrap_preserves_pairing():
+    from saudasach.metrics import aggregate_paired_difference
+
+    y = np.array([0, 1] * 3)
+    groups = np.repeat(["a", "b", "c"], 2)
+    a = np.array([-0.1, 0.1] * 3)
+    b = -a
+    ci = aggregate_paired_difference(y, groups, [(a, a, 0.0, 0.0)], n=30)
+    assert ci["low"] == ci["high"] == 0
+    ci = aggregate_paired_difference(y, groups, [(b, a, 0.0, 0.0)], n=30)
+    assert ci["low"] == ci["high"] == 1

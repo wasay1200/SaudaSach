@@ -14,7 +14,12 @@ from .common import (
 from .data import load_cache
 from .models import CompactCNN
 from .train import clip_scores
-from .metrics import metrics, bootstrap_ba, paired_difference
+from .metrics import (
+    metrics,
+    bootstrap_ba,
+    paired_difference,
+    aggregate_paired_difference,
+)
 
 
 def evaluate_all(final_test=False):
@@ -155,9 +160,24 @@ def evaluate_all(final_test=False):
         for s in CONFIG["seeds"]
     ]
     clean_diffs = [differences[str(s)]["clean"]["difference"] for s in CONFIG["seeds"]]
+    aggregate_pairs = []
+    for seed in CONFIG["seeds"]:
+        a = f"cnn_ordinary_seed{seed}"
+        b = f"cnn_augmented_seed{seed}"
+        for condition in degraded:
+            av, ix = scoremap[(a, condition)]
+            bv, _ = scoremap[(b, condition)]
+            aggregate_pairs.append(
+                (av, bv, metadata[a]["threshold"], metadata[b]["threshold"])
+            )
+    aggregate_ci = aggregate_paired_difference(
+        labels[ix], groups[ix], aggregate_pairs, n=CONFIG["bootstrap_replicates"]
+    )
     comparison = {
         "seed_paired_differences": differences,
         "mean_degraded_gain": float(np.mean(seed_diffs)),
+        "mean_degraded_gain_ci95": aggregate_ci,
+        "positive_gain_ci_excludes_zero": aggregate_ci["low"] > 0,
         "std_degraded_gain": float(np.std(seed_diffs, ddof=1)),
         "mean_clean_change": float(np.mean(clean_diffs)),
         "target_gain": 0.05,

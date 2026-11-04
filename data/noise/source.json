@@ -1,0 +1,7 @@
+{
+  "repository": "karoldvl/ESC-50",
+  "revision": "33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6",
+  "license": "CC BY-NC 3.0",
+  "files": 40,
+  "partition": "ESC folds 1-3 train, 4 dev, 5 test; original source IDs checked before use"
+}

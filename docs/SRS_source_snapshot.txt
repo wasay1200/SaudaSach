@@ -1,0 +1,1580 @@
+Software Requirements Specification
+SaudaSach
+Urdu Audio Deepfake Detection for Voice Notes
+Version 1.0
+This specification defines the Android prototype and offline research pipeline for training and evaluating a compact Urdu synthetic-speech detector under noise and compression. Detection improvements are research targets that require experimental evidence.
+FAST School of Computing
+National University of Computer and Emerging Sciences, Karachi Campus
+Document History
+Version 1.0 establishes the initial requirements baseline. Approval is pending; the history records preparation rather than completed implementation.
+Distribution List
+The following recipients are designated for review. Delivery dates are recorded only after actual distribution.
+Document Sign-Off
+The responsible academic authority approves the baseline after review. Signatures are intentionally unsigned until approval; a substantive scope change requires a new revision and review.
+Table of Contents
+Document History	2
+Distribution List	2
+Document Sign-Off	2
+1. Introduction	4
+1.1 Purpose of Document	4
+1.2 Intended Audience	4
+1.3 Definitions, Acronyms and Abbreviations	4
+1.4 Document Conventions	4
+2. Overall Description	5
+2.1 Project Background	5
+2.2 Problem Statement	5
+2.3 Product Perspective	5
+2.4 Product Functions	5
+2.5 Project Scope	6
+2.6 Project Objectives	6
+2.7 Stakeholders	6
+2.8 User Classes and Characteristics	6
+2.9 Operating Environment	7
+2.10 Design and Implementation Constraints	7
+2.11 Assumptions and Dependencies	7
+2.12 Business Rules	7
+2.13 Legal, Ethical and Regulatory Requirements	8
+3. External Interface Requirements	8
+3.1 User Interfaces	8
+3.2 Hardware Interfaces	8
+3.3 Software Interfaces	8
+3.4 Communication Interfaces	9
+4. Functional Requirements	9
+4.1 Functional Hierarchy	9
+4.2 Use Case Diagram	9
+4.3 Use Case Descriptions	10
+4.4 Functional Requirements List	18
+5. Non-Functional Requirements	20
+5.1 Performance Requirements	20
+5.2 Safety Requirements	21
+5.3 Security Requirements	21
+5.4 Reliability and Availability	21
+5.5 Usability Requirements	21
+5.6 Maintainability, Portability and Scalability	22
+6. Data Requirements	22
+7. User Documentation	23
+8. Acceptance Criteria	23
+9. Requirements Traceability Matrix	26
+References	28
+Appendices	29
+Appendix A Evaluation protocol	29
+Appendix B Requirement verification fixtures	29
+Appendix C Open issues and decisions	29
+Appendix D Delivery boundaries	30
+1. Introduction
+1.1 Purpose of Document
+This SRS specifies the functional, non-functional, interface, data and acceptance requirements of SaudaSach version 1.0. It is the basis for the Software Design Specification (SDS), implementation, testing and academic review. The release includes a React Native Android application and reproducible offline research scripts. It does not assert that an untested model achieves a particular accuracy.
+1.2 Intended Audience
+1.3 Definitions, Acronyms and Abbreviations
+1.4 Document Conventions
+The template uses Arial, 13-point section headings and 11-point body text. FR-### identifies functional requirements and NFR-### non-functional requirements. UC-USER-## and UC-RES-## identify app-user and researcher use cases. TC-F-### and TC-N-### identify verification cases. BR-## identifies business rules, whose enforcing requirements appear in Section 9.
+“Shall” denotes a testable requirement at its stated priority. Must requirements define release acceptance; Should requirements are measured targets whose shortfalls require a documented disposition. Could features are optional; Won’t items are excluded. Research targets are hypotheses rather than completed results. Every normative FR and NFR appears in Sections 8 and 9.
+2. Overall Description
+2.1 Project Background
+Synthetic speech and voice conversion can imitate human voices and complicate assessment of suspicious audio. Urdu research includes the specialized dataset by Munir et al. [1] and its Tacotron/VITS corpus [2], RVC-based Urdu detection by Ahmad et al. [3], and comparisons of compact and Whisper-based models by Owais et al. [4]. These works motivate a controlled Urdu study rather than a claim that Urdu detection is unstudied.
+Short degraded-audio detection is also studied by S-MGAA [5]. SaudaSach therefore investigates whether varied noise and compression training improves a compact Urdu detector over an otherwise equivalent baseline, and documents the accuracy, storage and device-latency trade-offs. It is an empirical extension using established techniques, not a claim of the first real-time detector.
+2.2 Problem Statement
+A model that classifies clean research clips may perform differently on compressed voice notes, short speech and background noise. Published accuracy values obtained on different datasets cannot establish comparative superiority. The project needs an accessible audio-checking workflow and controlled evidence showing how its trained models behave under matched clean, degraded and, where feasible, generator-held-out tests. False accusations caused by genuine speech being flagged must be measured explicitly.
+2.3 Product Perspective
+SaudaSach is a standalone Android research prototype. A user imports a voice note or makes a consented in-app recording; analysis uses a bundled local model. The offline workstation prepares data, trains models, evaluates variants and exports a verified bundle. Android supplies file selection, audio decoding, sharing and microphone permissions. No proprietary deepfake-detection API is required. Figure 1 separates runtime data from offline research data.
+Figure 1. Context diagram for the application and offline research environment
+2.4 Product Functions
+Import supported audio from Android storage or a share action and record audio in the app.
+Validate and normalize audio, run the local detector and show an interpretable outcome with limitations.
+Delete local analysis data and access help without account registration.
+Audit and partition Urdu data; train baseline and augmented detectors; evaluate detection and deployment trade-offs; package the selected model.
+2.5 Project Scope
+In scope: Android-first React Native and TypeScript interface; local model inference; file import and supported Android audio sharing; in-app recording; three-outcome result display; no persistent raw-audio history; a compact log-mel CNN as the primary neural detector; an MFCC-statistics SVM reference; optional causal TCN comparison; grouped data manifests; class-balanced noise/compression augmentation; documented clean/degraded evaluation; and an evaluated quantization variant where export is feasible.
+Not in scope: intercepting cellular or WhatsApp calls; monitoring WhatsApp in the background; identifying a person; certifying truthfulness or fraud; guaranteed detection of every generator; partially manipulated segment localization; text transcription; iOS delivery; production cloud services; continuous public retraining; and autonomous financial or law-enforcement actions. Rolling live-microphone scoring is a stretch feature, not a release dependency. Sharing uses Android’s share mechanism, not a WhatsApp API integration.
+2.6 Project Objectives
+OBJ-01: Deliver a local Android workflow from supported audio selection or recording to an outcome and guidance, verified through the Must functional tests.
+OBJ-02: Reproduce a compact baseline and evaluate whether varied noise and compression training improves balanced accuracy on a predeclared degraded test suite. A proposed target is +5 percentage points with no more than a 2-point clean-audio loss; success is not presumed.
+OBJ-03: Report EER, FPR, class recalls and uncertainty, separating familiar and held-out conditions. A held-out-generator experiment is conditional on suitable independent data.
+OBJ-04: Measure exported model size, preprocessing plus inference latency and runtime memory on a declared Android device; investigate quantization without concealing detection losses.
+OBJ-05: Support informed use through inconclusive results, privacy controls, clear limits and a small observed usability study.
+2.7 Stakeholders
+2.8 User Classes and Characteristics
+2.9 Operating Environment
+The application targets Android 10 or later on ARM64 hardware with a microphone and at least 4 GB RAM as the initial test profile. Release testing uses one declared physical reference phone and at least one additional supported Android configuration. Initial limits are 3–60 seconds per imported file and 20 MiB; recording stops at 60 seconds. The analysis pipeline uses mono 16 kHz PCM and at least 2 seconds of detected speech. Model-score aggregation uses 2-second windows with a 0.5-second step for files long enough to contain those windows.
+Training runs on a development workstation with a supported Python/PyTorch environment and periodic university or hosted GPU access. No guaranteed GPU quota is assumed. Runtime inference is local and works without internet after installation. Source-code and consented research storage remain separate from app runtime data.
+2.10 Design and Implementation Constraints
+React Native and TypeScript form the app layer; onnxruntime-react-native executes the selected neural export. A small Kotlin module may provide audio decoding, recording or feature extraction if required for parity.
+Training uses Python, PyTorch, scikit-learn and audio tools such as librosa and FFmpeg. Exact versions and licenses are pinned in the release environment manifest after the integration pilot.
+Compute limits favor small networks and bounded experiment sets. Training a speech foundation model from scratch is excluded. Detector weights are trained by the team; evaluation baselines may reimplement published architectures.
+Android input-audio restrictions [6] limit the project to user-supplied audio and in-app microphone capture. The app cannot promise access to another application’s or cellular call audio.
+The model output is an acoustic synthetic-speech assessment. Unsupported languages, excessive degradation and unfamiliar generators can lead to errors.
+2.11 Assumptions and Dependencies
+Assumptions: the team can access licensed Urdu audio, obtain explicit consent for any new recordings or cloning, and use at least one physical Android device. Suitably grouped source metadata is available or can be conservatively reconstructed. Missing metadata reduces the strength of speaker-independent claims and is reported.
+Dependencies: the CSALT-LUMS corpus and its terms [2]; supported Android codecs and URI permissions; React Native, ONNX Runtime and Python training tools [7]–[9]; intermittent training compute; and, only if feasible, consented supplementary voice-conversion generation. Internet is needed to obtain tools and research data but not for the core installed app workflow. No paid third-party detection API, backend availability guarantee or external service rate limit is part of runtime operation.
+2.12 Business Rules
+2.13 Legal, Ethical and Regulatory Requirements
+The project records source permissions and complies with each corpus license; the CSALT-LUMS repository identifies noncommercial conditions [2]. Dataset redistribution is limited to what the relevant license and participant permission allow. New collection and cloning use written, purpose-specific consent, restricted access and the withdrawal procedure in Section 6. NFR-012 makes this auditable. Institutional ethics and similarity-review procedures apply before collection or submission as required by the department; this SRS does not represent an ethics approval.
+The system provides neither a legal authenticity certificate nor financial advice. Fairness is assessed through separately reported genuine Urdu and Urdu–English code-switched samples when sufficient labelled recordings exist. A small convenience sample cannot establish protection for the general population. Synthetic generation is limited to authorized research data and is not exposed as an app feature.
+3. External Interface Requirements
+Figure 1 defines the system boundary. The following interface contracts are verified by the functional and non-functional requirements rather than depending on a cloud detector.
+3.1 User Interfaces
+The home screen offers Import Audio, Record Audio and Help. The recording screen exposes permission rationale, elapsed time, Stop and Cancel. The review screen shows filename or recording label, duration and Analyze. The processing screen shows progress and Cancel. The result screen shows the outcome, synthetic-evidence score where available, model version, analyzed duration and guidance; Start Again and Delete return control to the user. A score is not labelled a probability unless calibration has been evaluated.
+Outcomes are “Synthetic speech suspected,” “No strong synthetic evidence,” and “Inconclusive.” The second outcome does not certify authenticity. Errors identify the problem and a recovery action, such as selecting supported audio or recording more speech. English is the release interface language; Urdu help is a Should requirement. Font scaling, screen-reader labels and text-plus-icon outcomes are covered by NFR-015 and NFR-016. Detailed wireframes belong in the SDS.
+3.2 Hardware Interfaces
+Android supplies microphone capture and local file access. The app requests microphone permission only on recording entry and uses system file selection or received content URIs instead of unrestricted storage access. A phone without an available microphone can still import audio. Speaker playback, external headsets and telephony capture are not required interfaces. TC-F-002, TC-F-003 and TC-F-004 exercise these boundaries.
+3.3 Software Interfaces
+3.4 Communication Interfaces
+The core app uses Android intents and local module calls, not HTTP, WebSocket, email or SMS services. No audio upload endpoint exists in this release. Research scripts use UTF-8 CSV/JSON manifests and local files; the model bundle contains ONNX weights and JSON preprocessing/threshold metadata. Development downloads and repository synchronization occur outside user analysis. Any future server-assisted interface requires a reviewed scope and consent change.
+4. Functional Requirements
+4.1 Functional Hierarchy
+1. Audio acquisition: 1.1 file import and sharing (UC-USER-01); 1.2 in-app recording (UC-USER-02).
+2. Local checking: 2.1 validation, preprocessing and scoring (UC-USER-03); 2.2 outcomes and guidance (UC-USER-04).
+3. User control: 3.1 cancellation and deletion (UC-USER-03/05); 3.2 help and limitations (UC-USER-06).
+4. Research pipeline: 4.1 provenance and split preparation (UC-RES-01); 4.2 baseline and augmented training (UC-RES-02); 4.3 evaluation (UC-RES-03); 4.4 versioned model packaging (UC-RES-04).
+4.2 Use Case Diagram
+Figure 2. Use case diagram showing all ten release use cases
+4.3 Use Case Descriptions
+All use cases below have defined success and exception outcomes. Researcher actions occur in local scripts and do not imply a public administration portal or an app account.
+UC-USER-01 Import audio
+Main scenario
+Alternate scenarios and exceptions
+UC-USER-02 Record audio
+Main scenario
+Alternate scenarios and exceptions
+UC-USER-03 Analyze audio
+Main scenario
+Alternate scenarios and exceptions
+UC-USER-04 Review result
+Main scenario
+Alternate scenarios and exceptions
+UC-USER-05 Delete local data
+Main scenario
+Alternate scenarios and exceptions
+UC-USER-06 Read help
+Main scenario
+Alternate scenarios and exceptions
+UC-RES-01 Prepare dataset
+Main scenario
+Alternate scenarios and exceptions
+UC-RES-02 Train detectors
+Main scenario
+Alternate scenarios and exceptions
+UC-RES-03 Evaluate detectors
+Main scenario
+Alternate scenarios and exceptions
+UC-RES-04 Package model
+Main scenario
+Alternate scenarios and exceptions
+4.4 Functional Requirements List
+Source keys identify agreed scope, stakeholder needs, the existing proposal, objectives or business rules. Researcher requirements are verified through scripts and reports; app requirements through a release build.
+Table 1. Functional requirements
+5. Non-Functional Requirements
+The requirements below use a declared test profile rather than an assumed production load. No server uptime or concurrent cloud-user guarantee applies because each installation analyzes locally. Performance and research Should targets are evaluated and reported; they are not pre-existing results. Dataset size and confidence intervals determine how strong a detection claim can be.
+5.1 Performance Requirements
+5.2 Safety Requirements
+5.3 Security Requirements
+5.4 Reliability and Availability
+5.5 Usability Requirements
+5.6 Maintainability, Portability and Scalability
+6. Data Requirements
+The app uses transient session data rather than a public account database. Research datasets, provenance and model artifacts are maintained in a separate restricted workspace. Detailed schemas and storage layout belong in SDS Section 5.
+Data retention, backup and privacy: app-owned raw audio, decoded PCM and features are transient and removed after analysis, cancellation or failure. Startup cleanup removes remnants from interrupted sessions before the next check. The app keeps only the current result in memory; it does not delete the user’s original file. Offline help, preferences and model weights remain until app removal. Temporary data are excluded from Android backups.
+Research audio and identity-linked consent records are encrypted at rest and restricted to authorized team members. The proposed retention endpoint is six months after final project acceptance, subject to contributor permission and institutional instructions; longer retention requires a documented basis and renewed permission where needed. A contributor may request withdrawal before the final training freeze; the team removes eligible samples and derived variants and reruns affected training where feasible. Once weights or aggregate reports are released, individual influence cannot be guaranteed removable, and the consent form explains this limit. Code, split manifests without identifying information and permitted artifacts are backed up at each milestone; raw audio is not placed in a public repository.
+7. User Documentation
+The release documentation supports both app operation and reproduction of the research evidence.
+User guide: installation, supported audio, recording, import/share workflow, outcome interpretation, deletion and privacy.
+Offline help: English instructions and, if FR-016 is delivered, Urdu outcome and privacy explanations.
+Troubleshooting guide: permissions, unsupported codecs, silence, corruption, insufficient speech and model-load errors.
+Researcher guide: environment setup, data provenance, split generation, augmentation, training, threshold selection, evaluation and export.
+Model card and evaluation report: training coverage, excluded cases, metrics, false positives, missing experiments, device profile and quantization trade-offs.
+Consent and data-management materials for supplemental recording or cloning; deployment/build instructions and test evidence index.
+8. Acceptance Criteria
+The release is ready for academic acceptance when every Must requirement below passes with recorded evidence, no unresolved critical crash or privacy defect remains, all Should/Could items have an achieved/missed/deferred disposition, and the assigned supervisor reviews the results. Requirements marked Planned in Section 9 have not been tested by this document’s preparation. Final sign-off is recorded in the front matter.
+Research completion requires executing and reporting the frozen protocol even if an improvement target is missed. The report can claim improvement only for comparisons supported by measured results and uncertainty. Before final-test access, the team and supervisor confirm the proposed +5-point robustness target, 2-point clean tolerance, quantization target, test corpus and reference phone. Subsequent target changes require a revision rather than silent retrospective adjustment.
+9. Requirements Traceability Matrix
+SDS references below are planned design allocations, not citations to a completed SDS. Status remains Planned until implementation and evidence are reviewed. Test IDs map directly to the acceptance records in Section 8. A slash-separated use-case suffix denotes the corresponding UC-USER or UC-RES IDs, as applicable.
+References
+[1] S. Munir et al., “Deepfake Defense: Constructing and Evaluating a Specialized Urdu Deepfake Audio Dataset,” Findings of the Association for Computational Linguistics ACL, pp. 14470–14480, 2024. https://aclanthology.org/2024.findings-acl.861/
+[2] CSALT-LUMS, “Urdu Deepfake Audio Dataset,” repository and license. https://github.com/CSALT-LUMS/urdu-deepfake-dataset
+[3] O. Ahmad, M. S. Khan, S. Jan and I. Khan, “Deepfake Audio Detection for Urdu Language Using Deep Neural Networks,” IEEE Access, vol. 13, pp. 97765–97778, 2025, doi: 10.1109/ACCESS.2025.3571293.
+[4] M. Owais et al., “Deepfake Audio Detection in Low-Resource Languages: A Case Study of Urdu,” IEEE Access, vol. 14, pp. 12407–12421, 2026, doi: 10.1109/ACCESS.2026.3654621.
+[5] H. Shi, X. Shi, S. Dogan, T. Huang and Y. Zhang, “Audio Deepfake Detection at the First Greeting: Hi,” ICASSP, 2026, doi: 10.1109/ICASSP55912.2026.11463587. https://arxiv.org/abs/2601.19573
+[6] Android Developers, “Sharing audio input,” technical documentation. https://developer.android.com/media/platform/sharing-audio-input
+[7] React Native, “React Native documentation.” https://reactnative.dev/docs/getting-started
+[8] ONNX Runtime, “Get started with ONNX Runtime in React Native.” https://onnxruntime.ai/docs/get-started/with-javascript/react-native.html
+[9] PyTorch, “PyTorch documentation.” https://docs.pytorch.org/docs/stable/index.html
+[10] Project team, “SaudaSach Final Year Project Proposal,” Fall 2026, project planning document. The SRS records the subsequently agreed voice-note robustness scope.
+[11] FAST School of Computing, “FYP-I Software Requirements Specification template,” supplied departmental template, Fall 2026.
+References identify source material and implementation documentation. No numerical detection result in this SRS is presented as a measured SaudaSach result. Final implementation versions and access records are recorded in the release manifest.
+Appendices
+Appendix A Evaluation protocol
+The mandatory study compares an ordinary compact CNN with the same architecture trained using varied noise and compression, plus an SVM reference. The split, training budget and checkpoint-selection rule are matched where applicable. An optional causal TCN is a separate architecture comparison. At least three seeds are run for the primary CNN comparison. Thresholds and inconclusive rules are selected using development data and frozen before final tests.
+The proposed augmentation suite uses Opus and GSM encode/decode paths and separate environmental-noise recordings at 20, 10 and 5 dB SNR. The pilot verifies codec availability, intelligibility and feasibility before conditions are frozen. Both classes receive matched transformation distributions. These are controlled channel simulations, not exact reproductions of every WhatsApp or cellular processing chain. Test noise recordings do not appear in training; at least one degradation configuration is reserved as unfamiliar. All variants of a source remain in its group.
+Results separate clean, noisy, compressed and combined conditions and include per-condition metrics and counts rather than only a pooled average. The primary balanced-accuracy comparison uses fixed validation-selected binary thresholds on all eligible clips. The three-outcome UI is evaluated separately with decision coverage and errors among decided clips, preventing rejection of difficult cases from inflating the primary score. EER uses all eligible continuous scores. FPR is reported on genuine Urdu and separately on available Urdu–English samples; its uncertainty is stated. No held-out-generator claim is made without a genuine independent generator family and matched genuine controls.
+Device measurements include file decoding, resampling, feature extraction, inference and aggregation, with cold model load reported separately. They exclude the time spent receiving or recording the audio. A short input window is an evidence duration, not an inference-latency measurement. Quantized and full-precision exports are tested on the same recordings and runtime settings. Missing or failed experiments remain visible in the final report.
+Appendix B Requirement verification fixtures
+The fixture set covers WAV PCM, AAC in M4A and Ogg Opus on the supported device profile; stereo and alternate sample rates; silence and low-speech audio; duration/size boundaries; inaccessible URIs; malformed files; denied microphone permission; interrupted recording; repeated Analyze taps; cancellation; restart cleanup; invalid model checksums; feature parity; and scores on either side of both decision thresholds. Noise and generator evaluation recordings are independent of implementation unit fixtures. TC IDs and observed outcomes are retained with the tested build and model hash.
+Appendix C Open issues and decisions
+Appendix D Delivery boundaries
+FYP-I covers the requirements baseline, data audit and consent procedure, experiment protocol, baseline/augmentation pipeline, initial model and integration feasibility evidence. FYP-II completes the selected app workflow, controlled evaluation, device measurements, documentation and final demonstration. This allocation does not record milestones as already completed. The approved departmental calendar determines actual submission dates. Optional live-microphone rolling scores, partial-fake localization and cloud confirmation require a separately reviewed scope revision.
+Project information
+Details
+Project Code
+FYP-1078
+Supervisor
+Muhammad Kashif
+Co-Supervisor
+-
+Project Team
+Abdul Wasay - 23L-0658
+Talha Idrees - 22K-4292
+Layqa Fatima - 23K-0572
+Submission Date
+Programme and session
+BS Computer Science | Fall 2026
+Ver.
+Name of person
+Date
+Description of change
+1.0
+Abdul Wasay, Talha Idrees and Layqa Fatima
+22 October 2026
+Complete initial SRS for scoped Urdu voice-note detection and robustness evaluation.
+Name
+Role
+Date sent
+Supervisor pending confirmation
+Requirements reviewer
+Not yet recorded
+Abdul Wasay, Talha Idrees and Layqa Fatima
+Project team
+Not yet recorded
+Assigned FYP jury
+Academic evaluation
+Not yet recorded
+Version
+Sign-off authority
+Signature
+Sign-off date
+1.0
+Assigned supervisor
+Awaiting signature
+Awaiting approval
+Audience
+How they use this document
+Supervisor and co-supervisor
+Review scope, resolve open decisions and approve measurable requirements.
+Project team
+Implement the app and research pipeline and derive design and test cases.
+Evaluation committee or jury
+Assess feasibility, evidence, traceability and completion.
+Pilot participants and dataset contributors
+Understand supported use, consent and limits through the user guide and consent materials.
+Term
+Definition
+SRS / SDS
+Software Requirements Specification / Software Design Specification.
+Bona fide
+Genuine human speech under the dataset labelling protocol.
+Deepfake audio
+Synthetic or voice-converted speech; detection does not establish a statement’s truth or a speaker’s identity.
+MFCC / log-mel
+Mel-frequency cepstral coefficients / logarithmic mel-band spectral features.
+CNN / TCN / SVM
+Convolutional neural network / temporal convolutional network / support vector machine.
+ONNX / INT8
+Model interchange format / eight-bit integer representation used in an evaluated quantization variant.
+Balanced accuracy
+Mean of genuine-speech recall and synthetic-speech recall.
+EER / FPR
+Equal error rate / fraction of genuine clips incorrectly flagged as synthetic at a selected operating point.
+SNR / p95
+Signal-to-noise ratio in decibels / 95th percentile of observed measurements.
+Held-out generator
+Synthesis or conversion family excluded from training and model-selection data.
+Inconclusive
+Insufficient audio evidence or a score between validation-selected decision thresholds.
+MoSCoW
+Must, Should, Could and Won’t priorities for this release.
+Stakeholder
+Interest or role
+Key concerns
+Citizen or pilot user
+Checks suspicious Urdu audio
+Clear feedback, false alarms, privacy and accessible controls.
+Supervisor and jury
+Review research and deliverables
+Fair comparisons, bounded claims and reproducible evidence.
+Consenting contributors
+Provide supplemental speech
+Voluntary participation, permitted use and withdrawal procedure.
+Abdul Wasay
+Application and integration
+Android audio workflow, local inference and release packaging.
+Talha Idrees
+Model development
+Baseline implementation, training, export and optimization.
+Layqa Fatima
+Data and evaluation
+Licensing, split integrity, augmentations, metrics and test reporting.
+User class
+Description
+Technical skill
+Main functions used
+App user
+Urdu-speaking adult with basic Android familiarity
+Low to medium
+Import, record, analyze, interpret result, delete and read help.
+Researcher
+Authorized project team member using local scripts
+High
+Prepare datasets, train, evaluate and export models.
+Reviewer
+Supervisor or jury observing evidence
+Medium to high
+Read reports, inspect manifests and repeat documented tests.
+ID
+Rule
+Source and enforcing requirements
+BR-01
+Results describe synthetic-speech evidence, not verified identity or truth.
+Agreed product scope; NFR-005, NFR-006.
+BR-02
+Raw user audio stays on the device and is not retained as a history.
+Privacy design; FR-013, NFR-008, NFR-009.
+BR-03
+Research use of newly recorded or cloned speech requires explicit consent.
+Research protocol; FR-017, NFR-012.
+BR-04
+Final test data cannot guide threshold or model selection.
+Evaluation protocol; FR-018, FR-023, NFR-020.
+BR-05
+Improvement and generalization claims identify datasets, splits, generators and uncertainty.
+Research reporting; FR-024, FR-025, NFR-021.
+External software or API
+Version policy
+Purpose
+Data exchanged
+Android file picker and share intents
+Android 10+ supported profile
+Select or receive user-authorized audio
+Content URI, MIME type and readable stream.
+Android media decoding and recorder
+Platform-supported AAC/M4A, WAV and Ogg Opus on declared test devices
+Decode input and capture microphone audio
+PCM samples, sample rate, duration and error code.
+React Native and ONNX Runtime Mobile
+Pinned compatible release versions
+UI and local neural inference
+Feature tensor, score tensor and model metadata.
+PyTorch and scikit-learn
+Pinned research environment
+Train CNN and SVM reference
+Features, labels, weights and configuration.
+librosa and FFmpeg
+Pinned research environment
+Features and codec/noise preparation
+Waveforms, encoded files and augmentation manifests.
+Local app-private storage
+Android application sandbox
+Temporary files and preferences
+Temporary audio, current result and settings.
+Use case field
+Specification
+Use case ID
+UC-USER-01
+Use case name
+Import audio
+Actors
+App user; Android picker or share provider
+Priority
+Must
+Description
+Make a supported voice note available for analysis.
+Trigger
+User selects Import or shares audio to SaudaSach.
+Pre-conditions
+The app is installed; the user grants access to the selected URI.
+Post-conditions
+Success: one validated input is ready. Failure: no analysis is started and recoverable guidance is shown.
+Related requirements
+FR-001, FR-002, FR-005, FR-006
+Step
+Actor action
+System response
+1
+Select a local file or choose SaudaSach in the share sheet.
+Resolve the authorized URI and inspect the input.
+2
+Confirm the selected file.
+Display duration and the Analyze action.
+At step
+Condition
+System response
+1a
+Cancel selection or deny access.
+Keep the previous screen and show how to retry.
+2a
+Unsupported, oversized, corrupt or inaccessible input.
+Reject it with a specific explanation; do not return an authenticity outcome.
+Use case field
+Specification
+Use case ID
+UC-USER-02
+Use case name
+Record audio
+Actors
+App user; Android microphone service
+Priority
+Must
+Description
+Capture a user-controlled sample for checking.
+Trigger
+User selects Record Audio.
+Pre-conditions
+Microphone is available; recording permission is granted.
+Post-conditions
+Success: a stopped recording is ready for validation. Failure/cancel: temporary recording is removed.
+Related requirements
+FR-003, FR-004, FR-005
+Step
+Actor action
+System response
+1
+Select Record and grant permission if prompted.
+Start capture and show elapsed time.
+2
+Select Stop or reach 60 seconds.
+Stop capture and present the sample for analysis.
+At step
+Condition
+System response
+1a
+Permission denied or microphone busy.
+Explain the issue and offer file import.
+2a
+User cancels or app loses foreground during capture.
+Stop capture and remove the incomplete temporary recording.
+Use case field
+Specification
+Use case ID
+UC-USER-03
+Use case name
+Analyze audio
+Actors
+App user; local inference engine
+Priority
+Must
+Description
+Obtain a synthetic-speech assessment without an audio upload.
+Trigger
+User selects Analyze.
+Pre-conditions
+Input is accessible; bundled model passes integrity and schema checks.
+Post-conditions
+Success: an analysis result is available. Failure/cancel: no verdict is presented as completed and the engine returns to idle.
+Related requirements
+FR-005 to FR-010, FR-012, FR-013
+Step
+Actor action
+System response
+1
+Select Analyze.
+Decode to canonical PCM and check speech quantity.
+2
+Wait while analysis runs.
+Compute features, score windows and aggregate them using bundle settings.
+At step
+Condition
+System response
+1a
+User selects Cancel.
+Stop the job and remove temporary analysis audio.
+2a
+Insufficient speech, decoding error or invalid model.
+Show inconclusive or a technical error as appropriate; provide a retry action.
+Use case field
+Specification
+Use case ID
+UC-USER-04
+Use case name
+Review result
+Actors
+App user
+Priority
+Must
+Description
+Understand the outcome and its limitations.
+Trigger
+Analysis finishes successfully.
+Pre-conditions
+A result and model metadata are available.
+Post-conditions
+Success: the user can interpret the outcome and start another check. No identity or truth certification is issued.
+Related requirements
+FR-009, FR-010, FR-011
+Step
+Actor action
+System response
+1
+Open the result.
+Display outcome, score where valid, duration and model version.
+2
+Read guidance and select Start Again.
+Explain verification limits and return to input selection.
+At step
+Condition
+System response
+1a
+Score falls between the fixed decision thresholds.
+Display Inconclusive with more-audio guidance.
+2a
+User asks what a low score means.
+Explain that absence of strong evidence does not establish authenticity.
+Use case field
+Specification
+Use case ID
+UC-USER-05
+Use case name
+Delete local data
+Actors
+App user
+Priority
+Must
+Description
+Remove the current analysis and temporary audio.
+Trigger
+User selects Delete or clears the active session.
+Pre-conditions
+A current result or temporary file may exist.
+Post-conditions
+Success: session result and app-owned temporary audio are removed; source file remains under user control.
+Related requirements
+FR-012, FR-013, FR-014
+Step
+Actor action
+System response
+1
+Select Delete.
+Remove the current result and app-owned temporary files.
+2
+Return home.
+Show an empty analysis state.
+At step
+Condition
+System response
+1a
+No session data exists.
+Complete as an idempotent deletion and remain ready.
+2a
+A file cannot immediately be removed.
+Report the cleanup error and retry cleanup before the next analysis.
+Use case field
+Specification
+Use case ID
+UC-USER-06
+Use case name
+Read help
+Actors
+App user
+Priority
+Must
+Description
+Understand supported inputs, privacy and outcome limits.
+Trigger
+User selects Help or a result explanation.
+Pre-conditions
+Application is installed.
+Post-conditions
+Success: offline help is visible and the user can return to the prior screen.
+Related requirements
+FR-015, FR-016
+Step
+Actor action
+System response
+1
+Open Help.
+Show input limits, privacy behavior and the three outcomes.
+2
+Select a topic and return.
+Explain the topic and restore navigation.
+At step
+Condition
+System response
+1a
+Internet is unavailable.
+Serve the bundled help without a network request.
+2a
+User requests Urdu help where installed.
+Show the corresponding bundled Urdu explanation.
+Use case field
+Specification
+Use case ID
+UC-RES-01
+Use case name
+Prepare dataset
+Actors
+Authorized researcher
+Priority
+Must
+Description
+Create auditable, non-overlapping research partitions.
+Trigger
+Researcher runs dataset preparation.
+Pre-conditions
+Source files and license/consent records are available.
+Post-conditions
+Success: validated grouped manifests and statistics are written. Failure: invalid provenance or overlap blocks the run.
+Related requirements
+FR-017, FR-018, FR-019
+Step
+Actor action
+System response
+1
+Register sources and grouping identities.
+Check required provenance and permitted use fields.
+2
+Generate split manifests and derived variants.
+Keep related samples together and log augmentation parameters.
+At step
+Condition
+System response
+1a
+Speaker or source metadata is unavailable.
+Assign conservative source groups and mark claim limitations.
+2a
+Duplicates, cross-split overlap or missing consent are detected.
+Fail validation and write a diagnostic report.
+Use case field
+Specification
+Use case ID
+UC-RES-02
+Use case name
+Train detectors
+Actors
+Authorized researcher
+Priority
+Must
+Description
+Train comparable baseline and robustness variants.
+Trigger
+Researcher starts a configured training run.
+Pre-conditions
+Validated training/development manifests and compute are available.
+Post-conditions
+Success: checkpoint, seed, configuration and development metrics are saved. Failed runs are marked incomplete.
+Related requirements
+FR-020, FR-021, FR-022
+Step
+Actor action
+System response
+1
+Choose architecture, seed and augmentation configuration.
+Load only training/development partitions and initialize training.
+2
+Complete training and select the development checkpoint.
+Save weights, metrics and reproducibility metadata.
+At step
+Condition
+System response
+1a
+GPU or memory is insufficient.
+Terminate with a diagnostic; researcher may rerun a smaller documented configuration.
+2a
+Optional TCN is selected.
+Use the same partition and comparison protocol and report its separate results.
+Use case field
+Specification
+Use case ID
+UC-RES-03
+Use case name
+Evaluate detectors
+Actors
+Authorized researcher; reviewer
+Priority
+Must
+Description
+Produce a fair, reproducible detection and deployment report.
+Trigger
+Researcher runs the frozen evaluation configuration.
+Pre-conditions
+Models, thresholds, test manifests and device profile are frozen.
+Post-conditions
+Success: metrics, comparisons and uncertainty are saved. Missing optional experiments are explicitly identified.
+Related requirements
+FR-023, FR-024, FR-025, FR-026
+Step
+Actor action
+System response
+1
+Run clean and predeclared degraded tests.
+Compute class metrics from fixed models and thresholds.
+2
+Run applicable held-out and device tests.
+Write labelled results, model size and latency observations.
+At step
+Condition
+System response
+1a
+Independent held-out-generator data is unavailable.
+Mark that experiment not performed and restrict generalization claims.
+2a
+A proposed improvement target is missed.
+Report the measured loss or absence of improvement without changing the test protocol.
+Use case field
+Specification
+Use case ID
+UC-RES-04
+Use case name
+Package model
+Actors
+Authorized researcher
+Priority
+Must
+Description
+Deliver a compatible, versioned local detector bundle.
+Trigger
+Researcher selects the release checkpoint.
+Pre-conditions
+A compatible neural model and preprocessing configuration exist.
+Post-conditions
+Success: a verified bundle is installed in a test build. Failure: a mismatched or corrupt bundle is rejected.
+Related requirements
+FR-027, FR-028, FR-029
+Step
+Actor action
+System response
+1
+Export the checkpoint and metadata.
+Create ONNX and schema/threshold/checksum metadata.
+2
+Verify Python/mobile parity and install.
+Load the matching bundle and retain verification evidence.
+At step
+Condition
+System response
+1a
+Quantized export is requested.
+Evaluate it against the full-precision export before selection.
+2a
+Schema, checksum or numerical parity fails.
+Block release packaging until the mismatch is corrected.
+ID
+Requirement
+Priority
+Use case
+Source
+FR-001
+The application shall import one audio file through the Android system picker.
+Must
+UC-USER-01
+User
+FR-002
+The application shall accept one supported audio content URI received through an Android share intent.
+Must
+UC-USER-01
+User
+FR-003
+The application shall request microphone permission when the user first invokes recording.
+Must
+UC-USER-02
+User
+FR-004
+The application shall stop an in-app recording on user Stop, Cancel, loss of foreground or the 60-second limit.
+Must
+UC-USER-02
+Scope
+FR-005
+The application shall validate inputs against the type, size, duration and speech-content limits in Section 2.9 before scoring.
+Must
+UC-USER-01/02/03
+Scope
+FR-006
+The application shall decode accepted audio to mono 16 kHz PCM using the bundled preprocessing specification.
+Must
+UC-USER-01/03
+Team
+FR-007
+The application shall compute the feature tensors defined by the loaded model bundle.
+Must
+UC-USER-03
+Team
+FR-008
+The application shall score the available 2-second audio windows using the selected bundled local model.
+Must
+UC-USER-03
+Scope
+FR-009
+The application shall aggregate window scores according to the versioned aggregation configuration.
+Must
+UC-USER-03/04
+Team
+FR-010
+The application shall map a completed assessment to the three outcome labels using validation-selected bundle thresholds and quality rules.
+Must
+UC-USER-03/04
+Scope
+FR-011
+The application shall display the outcome, analyzed duration, model version and available evidence score on the result screen.
+Must
+UC-USER-04
+User
+FR-012
+The application shall cancel an active analysis when the user selects Cancel.
+Must
+UC-USER-03/05
+User
+FR-013
+The application shall remove app-owned temporary audio after completion, cancellation, recoverable failure or startup cleanup.
+Must
+UC-USER-03/05
+BR-02
+FR-014
+The application shall clear the current result and app-owned temporary audio when Delete is selected.
+Must
+UC-USER-05
+User
+FR-015
+The application shall provide bundled offline help covering input limits, outcome meanings and privacy behavior.
+Must
+UC-USER-06
+User
+FR-016
+The application shall provide Urdu explanations for each outcome and the privacy summary.
+Should
+UC-USER-06
+User
+FR-017
+The research pipeline shall validate each source record for provenance and license or consent evidence before training eligibility.
+Must
+UC-RES-01
+BR-03
+FR-018
+The research pipeline shall reject a manifest containing a related-source group in more than one partition.
+Must
+UC-RES-01
+BR-04
+FR-019
+The research pipeline shall record each augmentation recipe and apply the configured recipe distribution to both genuine and synthetic classes.
+Must
+UC-RES-01
+Team
+FR-020
+The research pipeline shall train an MFCC-statistics SVM reference using the frozen training/development split.
+Must
+UC-RES-02
+Proposal
+FR-021
+The research pipeline shall train a compact CNN with ordinary training and a matched variant using varied noise and compression.
+Must
+UC-RES-02
+OBJ-02
+FR-022
+The research pipeline shall train a causal TCN comparator using the same split and declared feature protocol.
+Could
+UC-RES-02
+Proposal
+FR-023
+The research pipeline shall select operating thresholds using development data only and persist them before final testing.
+Must
+UC-RES-03
+BR-04
+FR-024
+The research pipeline shall export class recalls, balanced accuracy, EER, FPR, sample counts and confusion matrices for every mandatory test condition.
+Must
+UC-RES-03
+OBJ-03
+FR-025
+The research pipeline shall label held-out-generator and code-switched evaluations separately from the main test results when those datasets are available.
+Should
+UC-RES-03
+BR-05
+FR-026
+The evaluation tools shall export model bytes, reference-device details and preprocessing-plus-inference latency observations.
+Must
+UC-RES-03
+OBJ-04
+FR-027
+The packaging tools shall produce an ONNX model with preprocessing, class-label, threshold, aggregation, version and checksum metadata.
+Must
+UC-RES-04
+Team
+FR-028
+The packaging tools shall evaluate an INT8 variant against its full-precision export when the runtime supports the required operators.
+Should
+UC-RES-04
+OBJ-04
+FR-029
+The application shall reject a model bundle whose checksum or schema is invalid.
+Must
+UC-RES-04
+Team
+ID
+Requirement
+Measure or verification
+Priority
+NFR-001
+The app shall present a processing state within 500 ms of Analyze on the declared reference phone.
+Measure 30 valid-input runs; maximum observed UI response <=500 ms.
+Must
+NFR-002
+The app shall complete preprocessing and inference for 3–15 second inputs within 5 seconds at p95 on the reference phone.
+At least 50 warmed, batch-one runs; report cold start separately and identify device, model and runtime.
+Should
+NFR-003
+The app shall restore an idle UI within 2 seconds of cancellation.
+Cancel during decoding and scoring in 10 runs; verify idle state and cleanup.
+Must
+NFR-004
+The app shall execute at most one audio analysis job at a time.
+Rapid repeated Analyze taps produce one active job and one result.
+Must
+ID
+Requirement
+Measure or verification
+Priority
+NFR-005
+Every result screen shall state that the output does not verify identity, truthfulness or absence of fraud.
+Inspect all three result states in the release build.
+Must
+NFR-006
+The app shall display Inconclusive for fewer than 2 seconds of detected speech or a score within the configured uncertainty interval.
+Boundary tests for speech quantity and both score thresholds.
+Must
+NFR-007
+A decoding or inference failure shall never be displayed as a completed low-risk outcome.
+Fault injection returns a technical error with retry guidance, not a genuine-speech assessment.
+Must
+ID
+Requirement
+Measure or verification
+Priority
+NFR-008
+The release application shall transmit no user audio or derived features to a network endpoint.
+Inspect release configuration and observe traffic during import, analysis, results and help.
+Must
+NFR-009
+Temporary audio shall remain in app-private cache and shall be excluded from device backup.
+Inspect storage paths, backup configuration and post-session cleanup.
+Must
+NFR-010
+The release application shall request no contacts, SMS, call-log or broad file-management permission.
+Manifest and runtime permission inspection.
+Must
+NFR-011
+Logs shall omit raw samples, transcripts, user file paths and participant contact details.
+Inspect logs from success, failure and research-export fixtures.
+Must
+NFR-012
+Every newly collected or cloned research sample shall have an auditable consent reference before use.
+Audit the supplemental manifest against restricted consent records; zero unconsented eligible samples.
+Must
+ID
+Requirement
+Measure or verification
+Priority
+NFR-013
+The app shall finish 100 sequential valid-input sessions without an unhandled crash.
+Run a supported-format regression suite and retain crash/session logs.
+Must
+NFR-014
+Core import, analysis, result and help flows shall work in airplane mode after installation.
+Complete the four flows with network interfaces disabled.
+Must
+ID
+Requirement
+Measure or verification
+Priority
+NFR-015
+Every interactive release control shall have a screen-reader label and remain usable at 150 percent font scaling.
+TalkBack inspection and font-scale navigation on the reference phone.
+Must
+NFR-016
+Every outcome shall be distinguishable through text and an icon without depending on color.
+Inspect screenshots in grayscale for all result states.
+Must
+NFR-017
+At least 4 of 5 pilot users shall import audio and explain the outcome limitation without assistance within 3 minutes.
+Observe five consenting adult users; retain task times and anonymized observations.
+Should
+ID
+Requirement
+Measure or verification
+Priority
+NFR-018
+The release shall pass the core flow suite on the reference Android 10+ ARM64 phone and one additional supported configuration.
+Record OS/API level, architecture and pass/fail results.
+Must
+NFR-019
+Every completed training run shall retain code revision, seed, split hashes, configuration and environment versions.
+Inspect all checkpoints selected for comparison and reproduce one saved inference run.
+Must
+NFR-020
+The final evaluation shall have zero related-source overlap between train, development and test manifests.
+Automated group/hash audit before model selection and final evaluation.
+Must
+NFR-021
+The primary neural comparison shall report at least three seeds and 95 percent source-group-bootstrap confidence intervals.
+Inspect the frozen report for seed-level results, group counts and interval procedure.
+Must
+NFR-022
+The augmented detector shall target a gain of at least 5 percentage points in degraded balanced accuracy with a clean loss of no more than 2 points.
+Compare against the matched baseline on frozen test manifests; report confidence intervals and target achieved/missed.
+Should
+NFR-023
+The mobile and Python pipelines shall produce normalized feature tensors with maximum absolute deviation <=0.001 on ten fixed fixtures.
+Compare canonical PCM inputs and feature outputs using the bundle configuration.
+Must
+NFR-024
+The quantized variant shall target at least 50 percent smaller exported weights with no more than a 1-point EER increase.
+Measure file bytes and EER against the same full-precision export and frozen tests; document achieved/missed.
+Should
+Data entity
+Description
+Key attributes
+Audio input
+User-selected source or temporary app recording
+Session ID, content URI, MIME type, duration, sample rate; URI not written to logs.
+Canonical PCM and features
+Temporary analysis representation
+Sample rate, mono channels, sample count, tensor shape and preprocessing version.
+Analysis result
+Current-session acoustic assessment
+Outcome, aggregate score, quality reason, duration and model/threshold versions.
+Model bundle
+Versioned detector and inference contract
+ONNX bytes, checksum, class order, feature schema, thresholds and aggregation configuration.
+Dataset sample
+Licensed or consented research item
+Pseudonymous ID, class, generator, speaker/source group, origin, license and consent reference.
+Split manifest
+Immutable experimental partition
+Sample ID, group ID, train/development/test assignment and content hash.
+Augmentation record
+Reproducible derived condition
+Source ID, codec and settings, noise source, SNR, random seed and processing order.
+Experiment run
+Training or evaluation evidence
+Code revision, seed, manifest hashes, hyperparameters, metrics and checkpoint.
+Consent record
+Restricted contributor authorization
+Participant code, permitted recording/cloning use, date, withdrawal procedure and contact stored separately.
+Device benchmark
+Measured deployment performance
+Device/OS, runtime, input length, cold/warm status, elapsed time and memory observation.
+Req. ID
+Acceptance criterion
+Verification method
+FR-001
+Given a valid local file, choosing it through the picker makes exactly one input ready.
+TC-F-001 | Device test and fixture
+FR-002
+Given a supported shared URI, opening it in SaudaSach reaches input review.
+TC-F-002 | Device test and fixture
+FR-003
+Recording entry requests permission; denial leaves file import available.
+TC-F-003 | Device test and fixture
+FR-004
+Stop, Cancel, foreground loss and 60 seconds each end capture correctly.
+TC-F-004 | Device test and fixture
+FR-005
+Valid boundary inputs pass; unsupported, >20 MiB, <3 s, >60 s or insufficient-speech inputs are handled as specified.
+TC-F-005 | Device test and fixture
+FR-006
+Known stereo/sample-rate fixtures decode to the declared mono 16 kHz representation.
+TC-F-006 | Device test and fixture
+FR-007
+Feature dimensions and processing parameters match the selected bundle.
+TC-F-007 | Device test and fixture
+FR-008
+All applicable 2-second windows receive local scores without an external detector.
+TC-F-008 | Device test and fixture
+FR-009
+Fixed window-score fixtures produce the configured aggregate within numerical tolerance.
+TC-F-009 | Device test and fixture
+FR-010
+Threshold and quality fixtures produce the correct three outcomes.
+TC-F-010 | Device test and fixture
+FR-011
+Every completed result shows the required fields without a probability claim.
+TC-F-011 | Device test and fixture
+FR-012
+Cancellation prevents a completed result for the cancelled job.
+TC-F-012 | Device test and fixture
+FR-013
+Completion, failure, cancellation and restart leave no stale app-owned audio before the next check.
+TC-F-013 | Device test and fixture
+FR-014
+Delete clears the session but leaves the user’s original source intact.
+TC-F-014 | Device test and fixture
+FR-015
+All help topics are readable in airplane mode.
+TC-F-015 | Device test and fixture
+FR-016
+Urdu outcome and privacy explanations render legibly if this Should item is delivered.
+TC-F-016 | Device test and fixture
+FR-017
+Sources with missing license/consent evidence are excluded and identified.
+TC-F-017 | Script and report inspection
+FR-018
+A deliberately overlapping manifest is rejected; the final manifest passes.
+TC-F-018 | Script and report inspection
+FR-019
+Recipes record noise/codec settings and both classes receive the configured distribution.
+TC-F-019 | Script and report inspection
+FR-020
+An SVM checkpoint and development metrics are saved from the declared split.
+TC-F-020 | Script and report inspection
+FR-021
+Ordinary and augmented CNN runs use matched splits and produce reproducible checkpoints.
+TC-F-021 | Script and report inspection
+FR-022
+The optional TCN produces separately labelled runs, or receives a deferred disposition.
+TC-F-022 | Script and report inspection
+FR-023
+Threshold metadata refer only to development data and predate final testing.
+TC-F-023 | Script and report inspection
+FR-024
+Each mandatory condition has the complete metric set and sample counts.
+TC-F-024 | Script and report inspection
+FR-025
+Available held-out/code-switch results are separately labelled, or the report records their absence.
+TC-F-025 | Script and report inspection
+FR-026
+The benchmark output identifies model bytes, device details and raw latency observations.
+TC-F-026 | Script and report inspection
+FR-027
+The bundle contains the ONNX model and all required metadata.
+TC-F-027 | Script and report inspection
+FR-028
+Supported INT8 export has matched evaluation, or incompatibility is recorded.
+TC-F-028 | Script and report inspection
+FR-029
+Corrupt checksum and incompatible-schema bundles are rejected.
+TC-F-029 | Script and report inspection
+Req. ID
+Acceptance criterion
+Verification method
+NFR-001
+Measure 30 valid-input runs; maximum observed UI response <=500 ms.
+TC-N-001 | Test and inspection
+NFR-002
+At least 50 warmed, batch-one runs; report cold start separately and identify device, model and runtime.
+TC-N-002 | Measured target
+NFR-003
+Cancel during decoding and scoring in 10 runs; verify idle state and cleanup.
+TC-N-003 | Test and inspection
+NFR-004
+Rapid repeated Analyze taps produce one active job and one result.
+TC-N-004 | Test and inspection
+NFR-005
+Inspect all three result states in the release build.
+TC-N-005 | Test and inspection
+NFR-006
+Boundary tests for speech quantity and both score thresholds.
+TC-N-006 | Test and inspection
+NFR-007
+Fault injection returns a technical error with retry guidance, not a genuine-speech assessment.
+TC-N-007 | Test and inspection
+NFR-008
+Inspect release configuration and observe traffic during import, analysis, results and help.
+TC-N-008 | Test and inspection
+NFR-009
+Inspect storage paths, backup configuration and post-session cleanup.
+TC-N-009 | Test and inspection
+NFR-010
+Manifest and runtime permission inspection.
+TC-N-010 | Test and inspection
+NFR-011
+Inspect logs from success, failure and research-export fixtures.
+TC-N-011 | Test and inspection
+NFR-012
+Audit the supplemental manifest against restricted consent records; zero unconsented eligible samples.
+TC-N-012 | Test and inspection
+NFR-013
+Run a supported-format regression suite and retain crash/session logs.
+TC-N-013 | Test and inspection
+NFR-014
+Complete the four flows with network interfaces disabled.
+TC-N-014 | Test and inspection
+NFR-015
+TalkBack inspection and font-scale navigation on the reference phone.
+TC-N-015 | Test and inspection
+NFR-016
+Inspect screenshots in grayscale for all result states.
+TC-N-016 | Test and inspection
+NFR-017
+Observe five consenting adult users; retain task times and anonymized observations.
+TC-N-017 | Measured target
+NFR-018
+Record OS/API level, architecture and pass/fail results.
+TC-N-018 | Test and inspection
+NFR-019
+Inspect all checkpoints selected for comparison and reproduce one saved inference run.
+TC-N-019 | Test and inspection
+NFR-020
+Automated group/hash audit before model selection and final evaluation.
+TC-N-020 | Test and inspection
+NFR-021
+Inspect the frozen report for seed-level results, group counts and interval procedure.
+TC-N-021 | Test and inspection
+NFR-022
+Compare against the matched baseline on frozen test manifests; report confidence intervals and target achieved/missed.
+TC-N-022 | Measured target
+NFR-023
+Compare canonical PCM inputs and feature outputs using the bundle configuration.
+TC-N-023 | Test and inspection
+NFR-024
+Measure file bytes and EER against the same full-precision export and frozen tests; document achieved/missed.
+TC-N-024 | Measured target
+Req. ID
+Use case
+Design reference
+Test case ID
+Status
+Priority
+FR-001
+UC-USER-01
+SDS 3.1 Audio input
+TC-F-001
+Planned
+Must
+FR-002
+UC-USER-01
+SDS 3.1 Audio input
+TC-F-002
+Planned
+Must
+FR-003
+UC-USER-02
+SDS 3.1 Audio input
+TC-F-003
+Planned
+Must
+FR-004
+UC-USER-02
+SDS 3.1 Audio input
+TC-F-004
+Planned
+Must
+FR-005
+UC-USER-01/02/03
+SDS 3.2 Validation
+TC-F-005
+Planned
+Must
+FR-006
+UC-USER-01/03
+SDS 3.2 Validation
+TC-F-006
+Planned
+Must
+FR-007
+UC-USER-03
+SDS 3.3 Features
+TC-F-007
+Planned
+Must
+FR-008
+UC-USER-03
+SDS 3.4 Inference
+TC-F-008
+Planned
+Must
+FR-009
+UC-USER-03/04
+SDS 3.4 Inference
+TC-F-009
+Planned
+Must
+FR-010
+UC-USER-03/04
+SDS 3.5 Results
+TC-F-010
+Planned
+Must
+FR-011
+UC-USER-04
+SDS 3.5 Results
+TC-F-011
+Planned
+Must
+FR-012
+UC-USER-03/05
+SDS 3.6 Session
+TC-F-012
+Planned
+Must
+FR-013
+UC-USER-03/05
+SDS 3.6 Session
+TC-F-013
+Planned
+Must
+FR-014
+UC-USER-05
+SDS 3.6 Session
+TC-F-014
+Planned
+Must
+FR-015
+UC-USER-06
+SDS 3.7 Help
+TC-F-015
+Planned
+Must
+FR-016
+UC-USER-06
+SDS 3.7 Help
+TC-F-016
+Planned
+Should
+FR-017
+UC-RES-01
+SDS 4.1 Provenance
+TC-F-017
+Planned
+Must
+FR-018
+UC-RES-01
+SDS 4.2 Splitting
+TC-F-018
+Planned
+Must
+FR-019
+UC-RES-01
+SDS 4.3 Augmentation
+TC-F-019
+Planned
+Must
+FR-020
+UC-RES-02
+SDS 4.4 Training
+TC-F-020
+Planned
+Must
+FR-021
+UC-RES-02
+SDS 4.4 Training
+TC-F-021
+Planned
+Must
+FR-022
+UC-RES-02
+SDS 4.4 Training
+TC-F-022
+Planned
+Could
+FR-023
+UC-RES-03
+SDS 4.5 Evaluation
+TC-F-023
+Planned
+Must
+FR-024
+UC-RES-03
+SDS 4.5 Evaluation
+TC-F-024
+Planned
+Must
+FR-025
+UC-RES-03
+SDS 4.5 Evaluation
+TC-F-025
+Planned
+Should
+FR-026
+UC-RES-03
+SDS 4.6 Device benchmark
+TC-F-026
+Planned
+Must
+FR-027
+UC-RES-04
+SDS 4.7 Packaging
+TC-F-027
+Planned
+Must
+FR-028
+UC-RES-04
+SDS 4.7 Packaging
+TC-F-028
+Planned
+Should
+FR-029
+UC-RES-04
+SDS 4.7 Packaging
+TC-F-029
+Planned
+Must
+NFR-001
+UC-USER-03
+SDS 3.4 Inference
+TC-N-001
+Planned
+Must
+NFR-002
+UC-USER-03
+SDS 4.6 Device benchmark
+TC-N-002
+Planned
+Should
+NFR-003
+UC-USER-03/05
+SDS 3.6 Session
+TC-N-003
+Planned
+Must
+NFR-004
+UC-USER-03
+SDS 3.4 Inference
+TC-N-004
+Planned
+Must
+NFR-005
+UC-USER-04
+SDS 3.5 Results
+TC-N-005
+Planned
+Must
+NFR-006
+UC-USER-03/04
+SDS 3.5 Results
+TC-N-006
+Planned
+Must
+NFR-007
+UC-USER-03/04
+SDS 3.5 Results
+TC-N-007
+Planned
+Must
+NFR-008
+UC-USER-01/03/06
+SDS 3.6 Session
+TC-N-008
+Planned
+Must
+NFR-009
+UC-USER-03/05
+SDS 3.6 Session
+TC-N-009
+Planned
+Must
+NFR-010
+UC-USER-01/02
+SDS 3.1 Audio input
+TC-N-010
+Planned
+Must
+NFR-011
+UC-USER-03/UC-RES-03
+SDS 5 Data and privacy
+TC-N-011
+Planned
+Must
+NFR-012
+UC-RES-01
+SDS 4.1 Provenance
+TC-N-012
+Planned
+Must
+NFR-013
+UC-USER-03
+SDS 6 Test architecture
+TC-N-013
+Planned
+Must
+NFR-014
+UC-USER-01/03/04/06
+SDS 3 App architecture
+TC-N-014
+Planned
+Must
+NFR-015
+UC-USER-01/04/06
+SDS 3 App architecture
+TC-N-015
+Planned
+Must
+NFR-016
+UC-USER-04
+SDS 3.5 Results
+TC-N-016
+Planned
+Must
+NFR-017
+UC-USER-01/04
+SDS 6 Test architecture
+TC-N-017
+Planned
+Should
+NFR-018
+UC-RES-04
+SDS 4.7 Packaging
+TC-N-018
+Planned
+Must
+NFR-019
+UC-RES-02
+SDS 4.4 Training
+TC-N-019
+Planned
+Must
+NFR-020
+UC-RES-01/03
+SDS 4.2 Splitting
+TC-N-020
+Planned
+Must
+NFR-021
+UC-RES-03
+SDS 4.5 Evaluation
+TC-N-021
+Planned
+Must
+NFR-022
+UC-RES-03
+SDS 4.5 Evaluation
+TC-N-022
+Planned
+Should
+NFR-023
+UC-RES-04
+SDS 3.3 Features
+TC-N-023
+Planned
+Must
+NFR-024
+UC-RES-04
+SDS 4.7 Packaging
+TC-N-024
+Planned
+Should
+Issue
+Open issue or decision
+Owner
+Due milestone
+OI-01
+Confirm official project code and supervisor; determine whether a co-supervisor is appointed.
+Abdul Wasay
+Before SRS sign-off
+OI-02
+Approve supplemental consent and restricted-storage procedure before any new recording or cloning.
+Layqa Fatima and supervisor
+Before collection
+OI-03
+Select reference phone and pin compatible runtime/library versions.
+Abdul Wasay
+Before integration benchmark
+OI-04
+Audit source/speaker metadata and freeze grouping, augmentation conditions and test allocation.
+Layqa Fatima
+Before main training
+OI-05
+Review baseline pilot and confirm numerical Should targets without inspecting final-test results.
+Talha Idrees and supervisor
+Before final protocol freeze
+OI-06
+Decide whether independent generator and code-switched data are sufficient for separate evaluations.
+Layqa Fatima and Talha Idrees
+Before evaluation freeze
+OI-07
+Confirm retention endpoint and departmental ethics/sign-off requirements.
+Project team and supervisor
+Before collection and SRS approval

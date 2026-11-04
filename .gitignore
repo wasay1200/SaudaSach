@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+.env.*
+data/raw/
+data/noise/audio/
+data/cache/
+*.part
+*.log
+.DS_Store

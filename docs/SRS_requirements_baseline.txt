@@ -1,3 +1,5 @@
+PUBLIC REDACTED COPY — identities and student IDs removed. Requirements unchanged.
+
 Software Requirements Specification
 SaudaSach
 Urdu Audio Deepfake Detection for Voice Notes
@@ -217,13 +219,13 @@ Details
 Project Code
 FYP-1078
 Supervisor
-Muhammad Kashif
+Assigned supervisor
 Co-Supervisor
 -
 Project Team
-Abdul Wasay - 23L-0658
-Talha Idrees - 22K-4292
-Layqa Fatima - 23K-0572
+Team member A - [student ID redacted]
+Team member B - [student ID redacted]
+Team member C - [student ID redacted]
 Submission Date
 Programme and session
 BS Computer Science | Fall 2026
@@ -232,7 +234,7 @@ Name of person
 Date
 Description of change
 1.0
-Abdul Wasay, Talha Idrees and Layqa Fatima
+Team member A, Team member B and Team member C
 22 October 2026
 Complete initial SRS for scoped Urdu voice-note detection and robustness evaluation.
 Name
@@ -241,7 +243,7 @@ Date sent
 Supervisor pending confirmation
 Requirements reviewer
 Not yet recorded
-Abdul Wasay, Talha Idrees and Layqa Fatima
+Team member A, Team member B and Team member C
 Project team
 Not yet recorded
 Assigned FYP jury
@@ -303,13 +305,13 @@ Fair comparisons, bounded claims and reproducible evidence.
 Consenting contributors
 Provide supplemental speech
 Voluntary participation, permitted use and withdrawal procedure.
-Abdul Wasay
+Team member A
 Application and integration
 Android audio workflow, local inference and release packaging.
-Talha Idrees
+Team member B
 Model development
 Baseline implementation, training, export and optimization.
-Layqa Fatima
+Team member C
 Data and evaluation
 Licensing, split integrity, augmentations, metrics and test reporting.
 User class
@@ -1552,27 +1554,27 @@ Owner
 Due milestone
 OI-01
 Confirm official project code and supervisor; determine whether a co-supervisor is appointed.
-Abdul Wasay
+Team member A
 Before SRS sign-off
 OI-02
 Approve supplemental consent and restricted-storage procedure before any new recording or cloning.
-Layqa Fatima and supervisor
+Team member C and supervisor
 Before collection
 OI-03
 Select reference phone and pin compatible runtime/library versions.
-Abdul Wasay
+Team member A
 Before integration benchmark
 OI-04
 Audit source/speaker metadata and freeze grouping, augmentation conditions and test allocation.
-Layqa Fatima
+Team member C
 Before main training
 OI-05
 Review baseline pilot and confirm numerical Should targets without inspecting final-test results.
-Talha Idrees and supervisor
+Team member B and supervisor
 Before final protocol freeze
 OI-06
 Decide whether independent generator and code-switched data are sufficient for separate evaluations.
-Layqa Fatima and Talha Idrees
+Team member C and Team member B
 Before evaluation freeze
 OI-07
 Confirm retention endpoint and departmental ethics/sign-off requirements.

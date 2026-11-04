@@ -191,7 +191,7 @@ def main():
         "NFR-024": (
             "Target " + ("achieved" if quant["target_achieved"] else "missed"),
             "reports/quantization_evaluation.json",
-            "Storage and mean-condition EER measured; inspect every condition before deployment.",
+            "Storage and worst-condition EER measured; inspect every condition before deployment.",
         ),
     }
     records = []

@@ -10,3 +10,8 @@ data/cache/
 *.part
 *.log
 .DS_Store
+
+# Keep the original academic document out of public commits.
+docs/SRS_source_snapshot.txt
+
+data/staging_*/

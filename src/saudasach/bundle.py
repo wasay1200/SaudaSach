@@ -85,19 +85,32 @@ def export_bundle():
     )
 
     train = [i for i, r in enumerate(rows) if r["split"] == "train"]
-    calibration = [offsets[i] for i in train[:100]]
+    rng = np.random.default_rng(42)
+    calibration = []
+    calibration_conditions = ["clean", "noise10", "opus24", "gsm13"]
+    calibration_arrays = {c: load_cache(c) for c in calibration_conditions}
+    for label in [0, 1]:
+        eligible = [i for i in train if int(rows[i]["label"]) == label]
+        selected = rng.choice(eligible, size=min(64, len(eligible)), replace=False)
+        calibration.extend(
+            (int(offsets[i]), calibration_conditions[k % 4], int(i))
+            for k, i in enumerate(selected)
+        )
 
     class Reader(CalibrationDataReader):
         def __init__(self):
             self.it = iter(calibration)
 
         def get_next(self):
-            i = next(self.it, None)
-            return (
-                None
-                if i is None
-                else {"logmel": np.asarray(clean[i : i + 1], dtype=np.float32)}
-            )
+            item = next(self.it, None)
+            if item is None:
+                return None
+            i, condition, _ = item
+            return {
+                "logmel": np.asarray(
+                    calibration_arrays[condition][i : i + 1], dtype=np.float32
+                )
+            }
 
     quantize_static(
         str(path),
@@ -119,6 +132,11 @@ def export_bundle():
             "sha256": sha(out / "model_int8.onnx"),
             "calibration_partition": "train",
             "calibration_windows": len(calibration),
+            "calibration_policy": "64 training clips per class, evenly rotated clean/noise10/opus24/gsm13; seed 42",
+            "calibration_records": [
+                {"path": rows[i]["path"], "condition": c, "window_index": w}
+                for w, c, i in calibration
+            ],
             "full_precision_bytes": path.stat().st_size,
             "int8_bytes": (out / "model_int8.onnx").stat().st_size,
             "storage_reduction": 1
@@ -138,6 +156,23 @@ def load_bundle(directory):
         or m.get("labels") != {"0": "genuine", "1": "synthetic"}
     ):
         raise ValueError("Incompatible bundle schema")
+    frontend_keys = [
+        "sample_rate",
+        "window_seconds",
+        "n_fft",
+        "win_length",
+        "hop_length",
+        "n_mels",
+    ]
+    if any(m.get("frontend", {}).get(k) != CONFIG[k] for k in frontend_keys):
+        raise ValueError("Incompatible frontend configuration")
+    if not all(
+        np.isfinite(m.get(k, np.nan))
+        for k in ["threshold", "uncertainty_low", "uncertainty_high"]
+    ):
+        raise ValueError("Invalid decision thresholds")
+    if not m["uncertainty_low"] <= m["threshold"] <= m["uncertainty_high"]:
+        raise ValueError("Invalid uncertainty interval")
     file = directory / m["model_file"]
     if file.parent.resolve() != directory.resolve() or sha(file) != m["sha256"]:
         raise ValueError("Invalid model path or checksum")
@@ -246,13 +281,20 @@ def deployment_benchmark():
             ]
         )
     )
+    worst_eer_change = float(
+        max(
+            reports[c]["int8"]["eer"] - reports[c]["full_precision"]["eer"]
+            for c in reports
+        )
+    )
     write_json(
         ROOT / "reports/quantization_evaluation.json",
         {
             "conditions": reports,
             "storage_reduction": reduction,
             "mean_eer_increase": eer_change,
-            "target_achieved": bool(reduction >= 0.5 and eer_change <= 0.01),
+            "worst_condition_eer_increase": worst_eer_change,
+            "target_achieved": bool(reduction >= 0.5 and worst_eer_change <= 0.01),
             "threshold_policy": "Same validation-selected threshold; no quantized test retuning",
             "note": "Final test used only for frozen variant comparison; default deployment remains full precision.",
         },

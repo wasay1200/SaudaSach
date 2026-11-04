@@ -114,3 +114,34 @@ def test_invalid_bundle_rejected(tmp_path):
     (tmp_path / "metadata.json").write_text(json.dumps({"schema_version": 99}))
     with pytest.raises(ValueError, match="schema"):
         load_bundle(tmp_path)
+
+
+def valid_metadata():
+    from saudasach.common import CONFIG
+
+    return {
+        "schema_version": 1,
+        "feature_shape": [64, 197],
+        "labels": {"0": "genuine", "1": "synthetic"},
+        "frontend": CONFIG,
+        "threshold": 0.0,
+        "uncertainty_low": -0.1,
+        "uncertainty_high": 0.1,
+        "model_file": "model.onnx",
+        "sha256": "0" * 64,
+    }
+
+
+def test_tampered_bundle_rejected(tmp_path):
+    (tmp_path / "model.onnx").write_bytes(b"corrupt")
+    (tmp_path / "metadata.json").write_text(json.dumps(valid_metadata()))
+    with pytest.raises(ValueError, match="checksum"):
+        load_bundle(tmp_path)
+
+
+def test_mismatched_frontend_rejected(tmp_path):
+    m = valid_metadata()
+    m["frontend"] = dict(m["frontend"], sample_rate=8000)
+    (tmp_path / "metadata.json").write_text(json.dumps(m))
+    with pytest.raises(ValueError, match="frontend"):
+        load_bundle(tmp_path)

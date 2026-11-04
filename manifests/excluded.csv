@@ -1,0 +1,127 @@
+path,reason
+Spoofed_Tacotron/Speaker_01/114.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_01/116.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_01/13.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_01/299.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_01/306.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_01/339.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_01/39.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_05/448.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_07/104.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_07/106.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_07/17.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_07/267.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_07/316.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_07/39.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_07/462.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_07/467.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_09/262.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_09/275.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_09/39.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_15/138.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_15/273.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_15/329.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_15/38.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_15/470.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_15/471.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_16/314.wav,less_than_two_seconds
+Spoofed_Tacotron/Speaker_16/464.wav,less_than_two_seconds
+Bonafide/Speaker_15/Part 2/10.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/100.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/101.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/102.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/103.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/104.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/105.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/106.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/107.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/11.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/110.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/111.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/112.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/113.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/114.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/115.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/116.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/117.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/12.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/128.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/129.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/13.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/138.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/139.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/14.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/15.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/16.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/17.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/216.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/248.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/249.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/258.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/259.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/260.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/261.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/262.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/263.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/264.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/265.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/266.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/267.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/270.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/271.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/272.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/273.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/274.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/275.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/276.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/277.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/28.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/288.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/289.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/29.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/298.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/299.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/300.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/301.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/302.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/303.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/304.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/305.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/306.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/307.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/310.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/311.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/312.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/313.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/314.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/315.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/316.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/317.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/328.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/329.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/338.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/339.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/38.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/39.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/448.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/449.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/458.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/459.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/460.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/461.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/462.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/463.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/464.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/465.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/466.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/467.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/470.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/471.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/472.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/473.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/474.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/475.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/476.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/477.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/488.wav,exact_decoded_duplicate
+Bonafide/Speaker_15/Part 2/489.wav,exact_decoded_duplicate

@@ -1,0 +1,7 @@
+# Preserve audited byte hashes across operating systems.
+*.csv -text
+*.joblib binary
+*.pt binary
+*.onnx binary
+*.npz binary
+*.gz binary

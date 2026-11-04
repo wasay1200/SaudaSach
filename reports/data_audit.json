@@ -1,0 +1,49 @@
+{
+  "downloaded_files": 6794,
+  "retained": 6668,
+  "excluded": 126,
+  "exact_duplicates_removed": 99,
+  "conflicting_label_files_removed": 0,
+  "groups": 16,
+  "split_summary": {
+    "train": {
+      "files": 4277,
+      "genuine": 2100,
+      "synthetic": 2177,
+      "groups": [
+        "speaker_03",
+        "speaker_04",
+        "speaker_05",
+        "speaker_07",
+        "speaker_08",
+        "speaker_09",
+        "speaker_11",
+        "speaker_13",
+        "speaker_14",
+        "speaker_16"
+      ]
+    },
+    "dev": {
+      "files": 1200,
+      "genuine": 600,
+      "synthetic": 600,
+      "groups": [
+        "speaker_10",
+        "speaker_12",
+        "speaker_17"
+      ]
+    },
+    "test": {
+      "files": 1191,
+      "genuine": 599,
+      "synthetic": 592,
+      "groups": [
+        "speaker_01",
+        "speaker_02",
+        "speaker_06"
+      ]
+    }
+  },
+  "claim": "Folder-group-disjoint, not independently verified speaker identity or text/source independence. No near-duplicate guarantee.",
+  "manifest_sha256": "8178d9630e619a8072a2726f2489ffdcd0bf998fc6bfdec9e1ac1d2e30f00d6c"
+}
